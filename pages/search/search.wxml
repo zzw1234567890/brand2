@@ -1,0 +1,23 @@
+<!--pages/search/search.wxml-->
+<view class="container">
+  <view class='search'>
+    <view class="searchItem">
+      <image class='icon' src='../../img/search2.png' />
+      <input class='s-lost' type='text' maxlength='10' placeholder='请输入关键词搜索' placeholder-class="placeholder" auto-focus value="{{searchValue}}" bindinput="searchValueInput" bindchange="bindchange"></input>
+      <image class='icon-del' src='../../img/del.png' bindtap="clearInput" />
+    </view>
+    <view class='tap' bindtap="suo">搜索</view>
+  </view>
+
+  <view class='none' hidden='{{none}}'>
+    <text class='no'>没有找到搜索的内容...</text>
+  </view>
+
+  <view class="hot" hidden='{{view}}'>
+    <view class="ci">热搜</view>
+    <view class="res">
+      <view class="btn" data-text="{{item.name}}" wx:for="{{array}}" wx:key="*this" bindtap="hotSearch">{{item.name}}</view>
+    </view>
+  </view>
+
+</view>

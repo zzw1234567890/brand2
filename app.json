@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/main/main",
+    "pages/my/my",
+    "pages/detail/detail",
+    "pages/search/search",
+    "pages/rule/rule",
+    "pages/rank/rank"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF521A",
+    "navigationBarTitleText": "品牌 Top",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "selectedColor": "#FF521A",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "img/index.png",
+        "selectedIconPath": "img/index2.png"
+      },
+      {
+        "pagePath": "pages/main/main",
+        "text": "测试",
+        "iconPath": "img/add2.png",
+        "selectedIconPath": "img/add2.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我",
+        "iconPath": "img/my.png",
+        "selectedIconPath": "img/my2.png"
+      }
+    ]
+  }
+}

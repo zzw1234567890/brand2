@@ -1,0 +1,23 @@
+<!--pages/rank/rank.wxml-->
+<view class='container'>
+  <view class='main'>
+    <view class='box' wx:for="{{common}}" wx:for-index="index" wx:key='*this'>
+      <view class='top'>
+        <view class='header'>
+          <image class='hImg' src='{{item.pic}}'></image>
+        </view>
+        <view class='title'>
+          <text class='name'>{{item.from}}</text>
+          <text class='time'>{{item.create_time}}</text>
+        </view>
+        <view class='awear'>
+          <image class='aImg' src='../../img/goden.png'></image>
+          <text class='goden'>{{item.money}}个金币</text>
+        </view>
+      </view>
+      <view class='content'>
+        <text class='detail'>{{item.content}}</text>
+      </view>
+    </view>
+  </view>
+</view>

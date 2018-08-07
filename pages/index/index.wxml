@@ -1,0 +1,108 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='nav'>
+    <view class='navbar'>
+      <view class='left' bindtap='touch'>
+        <text class='{{hover}}'>问答进行</text>
+      </view>
+      <view class='middle'>
+        <text class='dot'>.</text>
+      </view>
+      <view class='right' bindtap='touch2'>
+        <text class='{{hovers}}'>问答结束</text>
+      </view>
+    </view>
+  </view>
+  <view class='searchContain'>
+    <view class='search'>
+      <image class='icon' src='../../img/search2.png' />
+      <input class='searchItem' type='text' disabled placeholder='请输入关键词搜索' placeholder-class="placeholder" bindtap='search'></input>
+    </view>
+  </view>
+  <view class='main' hidden='{{sview}}'>
+    <view class='contain'>
+      <view class='box' wx:for="{{brand}}" wx:for-index="index" wx:key='*this' data-index="{{index}}" bindtap='detail'>
+        <view class='top'>
+          <view class='header'>
+            <image class='hIcon' src='{{item.pic}}'></image>
+          </view>
+          <view class='name'>
+            <text class='username'>{{item.username}}</text>
+            <text class='time'>{{item.time}}</text>
+          </view>
+          <view class='now'>
+            <text class='zhuangtai'>{{item.now}}</text>
+          </view>
+        </view>
+        <view class='content'>
+          <view class='key'>
+            <text class='keyQues'>关键词 :</text>
+            <text class='keyQues1'>{{item.types}}</text>
+          </view>
+          <view class='nei'>
+            <text class='Ques'>{{item.questions}}</text>
+          </view>
+        </view>
+        <view class='bottom'>
+          <view class='times'>
+            <image class='tIcon' src='../../img/times.png'></image>
+            <text class='title'>浏览{{item.num}}次</text>
+          </view>
+          <view class='ans' bindtap='answer'>
+            <image class='tIcon' src='../../img/ans.png'></image>
+            <text class='title'>{{item.pepole}}人回答</text>
+          </view>
+        </view>
+        <view class='gift'>
+          <view class='gLeft'>
+            <image class='goden' src='../../img/goden.png'></image>
+            <text class='much'>{{item.gold}}个金币</text>
+          </view>
+          <view class='gRight'>
+            <image class='sang' src='../../img/sang.png'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='main' hidden='{{sview2}}'>
+    <view class='contain'>
+      <view class='box' wx:for="{{finish}}" wx:for-index="index" wx:key='*this' bindtap='detail'>
+        <view class='top'>
+          <view class='header'>
+            <image class='hIcon' src='{{item.pic}}'></image>
+          </view>
+          <view class='name'>
+            <text class='username'>{{item.username}}</text>
+            <text class='time'>{{item.time}}</text>
+          </view>
+          <view class='now'>
+            <text class='zhuangtai'>{{item.now}}</text>
+          </view>
+        </view>
+        <view class='content'>
+          <text class='Ques'>{{item.questions}}</text>
+        </view>
+        <view class='bottom'>
+          <view class='times'>
+            <image class='tIcon' src='../../img/times.png'></image>
+            <text class='title'>浏览{{item.num}}次</text>
+          </view>
+          <view class='ans'>
+            <image class='tIcon' src='../../img/ans.png'></image>
+            <text class='title'>{{item.people}}人回答</text>
+          </view>
+        </view>
+        <view class='gift'>
+          <view class='gLeft'>
+            <image class='goden' src='../../img/goden.png'></image>
+            <text class='much'>{{item.money}}个金币</text>
+          </view>
+          <view class='gRight'>
+            <image class='sang' src='../../img/sang.png'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,101 @@
+page{
+    background: #f6f6f6;
+}
+.container {
+  background: #f6f6f6;
+  width: 100%;
+  height:auto;
+  margin:0;
+}
+
+.search {
+  margin:0;
+  width: 100%;
+  padding-top: 20rpx;
+  height: 60rpx;
+ background: #f6f6f6;
+}
+
+.searchItem {
+  height: 60rpx;
+  width: 600rpx;
+  margin-left: 20rpx;
+  /* margin: 0 auto; */
+  background: white;
+  position: relative;
+  border-radius: 10rpx;
+  float: left;
+}
+
+.icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 6rpx;
+  margin-left: 10rpx;
+  position: absolute;
+}
+
+.icon-del {
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  margin-left: 550rpx;
+  margin-top: -50rpx;
+  position: absolute;
+  z-index: 99;
+  /* background: yellow; */
+}
+
+.s-lost {
+  /* background: green;  */
+  height: 60rpx;
+  width: 440rpx;
+  font-size: 24rpx;
+  padding-left: 70rpx;
+  z-index: 222;
+}
+
+.tap {
+  width: 80rpx;
+  float: left;
+  color: #FF521A;
+  font-size: 16px;
+  text-align: center;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+}
+.hot{
+  clear: both;
+  width:95%;
+  height:280rpx;
+  margin-top:30rpx;
+  padding: 0;
+  font-size:30rpx;
+}
+.res{
+  width:100%;
+  height:280rpx;
+}
+.btn{
+  width:auto;
+  height:60rpx;
+  line-height: 60rpx;
+  float:left;
+  font-size:28rpx;
+  color:#FF521A;
+  margin-left:20rpx;
+  margin-top:20rpx;
+  border-radius: 10rpx;
+}
+.none {
+  width: 100%;
+  height: 450rpx;
+  position: relative;
+}
+
+.no {
+  position: absolute;
+  margin: 200rpx;
+  font-size: 16px;
+  color: #444;
+}

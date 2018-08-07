@@ -1,0 +1,132 @@
+<!--pages/detail/detail.wxml-->
+<view class='container'>
+  <view class='content'>
+    <view class='box'>
+      <view class='top'>
+        <view class='header'>
+          <image class='hIcon' src='{{pic}}'></image>
+        </view>
+        <view class='name'>
+          <text class='username'>{{username}}</text>
+          <text class='time'>{{time}}</text>
+        </view>
+        <view class='now'>
+          <text class='zhuangtai'>{{now}}</text>
+        </view>
+      </view>
+      <view class='content'>
+        <view class='key'>
+          <text class='keyQues'>关键词 :</text>
+          <text class='keyQues1'>{{types}}</text>
+        </view>
+        <view class='nei'>
+          <text class='Ques'>{{questions}}</text>
+        </view>
+      </view>
+      <view class='realx'>
+        <view class='kuan'>
+          <text class='rest'>剩余时间</text>
+          <text class='rest2'>{{hhh}}</text>
+          <text class='rest'>:</text>
+          <text class='rest2'>{{mmm}}</text>
+          <text class='rest'>:</text>
+          <text class='rest2'>{{sss}}</text>
+        </view>
+      </view>
+      <view class='gift'>
+        <view class='gLeft'>
+          <image class='goden' src='../../img/goden.png'></image>
+          <text class='much'>{{gold}}个金币</text>
+        </view>
+        <view class='gRight'>
+          <view class='aware' bindtap='aware'>
+            <text class='rule'>领奖规则</text>
+            <image class='other' src='../../img/dayu.png'></image>
+          </view>
+        </view>
+        <view class='bottom'>
+          <view class='times'>
+            <image class='tIcon' src='../../img/times.png'></image>
+            <text class='title'>浏览{{num}}次</text>
+          </view>
+          <view class='ans' bindtap='answer' hidden='{{answer}}'>
+            <image class='tIcon' src='../../img/ans.png'></image>
+            <text class='title'>{{pepole}}人回答</text>
+          </view>
+          <view class='ans' bindtap='answer' hidden='{{answer2}}'>
+            <image class='tIcon' src='../../img/ans.png'></image>
+            <text class='title'>返回投票</text>
+          </view>
+          <view class='friend' bindtap='sc'>
+            <image class='tIcon' src="{{img}}"></image>
+            <text class='title'>{{title}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='brand2' hidden='{{sview2}}'>
+    <view class='Title'>
+      <text class='titles'>请选择下列品牌查看回复：</text>
+    </view>
+    <view class='main2'>
+      <view class='mainbox2' wx:for="{{Brands}}" wx:for-index="index" wx:key='*this' data-id='{{item.id}}' bindtap='look'>
+        <view class='mImg2'>
+          <image class='mIcon2' src='{{item.img}}'></image>
+        </view>
+        <view class='dd'>
+          <view class='mTitle2'>
+            <text class='mname2'>{{item.name}}</text>
+          </view>
+          <view class='mTitle-2'>
+            <text class='mname-2'>99人回复</text>
+          </view>
+        </view>
+        <view class='pBottom'>
+          <view class='one'>
+            <image class='b-pic' src='../../img/hot1.png'></image>
+            <text class='Tex'>热度1</text>
+          </view>
+          <view class='two'>
+            <image class='b-pic' src='../../img/icon3.png'></image>
+            <text class='Tex'>243435</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='brand3' hidden='{{sview3}}'>
+    <view class='Title'>
+      <text class='titles vote'>投票：</text>
+    </view>
+    <view class='Vote'>
+      <block wx:for="{{vote}}" wx:key='*this'>
+        <view class='kuang' wx:for-index="index">
+          <view class='bname' data-changeid="{{item.id}}" bindtap='showHide'>
+            <text class='brandname'>{{item.name}}</text>
+          </view>
+          <view class='bvote' id="{{index}}" wx:if="{{item.isvote==1}}" bindtap='toCollect' data-index='{{index}}'>
+            <image class='bpic' src="../../img/icon3.png"></image>
+            <text class='text zan'>{{showvote}}</text>
+          </view>
+          <view class='bvote' wx:else bindtap='toCollect' id="{{index}}" data-index='{{index}}'>
+            <image class='bpic' src="../../img/toupaio.png"></image>
+            <text class='text'>投票</text>
+          </view>
+        </view>
+        <view class='item-content' wx:if="{{item.shows}}">
+          <textarea class='con' placeholder='请输入您的回答...' value="{{searchValue}}" bindinput="searchValueInput"></textarea>
+          <view class='vBootom'>
+            <button type='reset' bindtap='reset' class='reset'>取消</button>
+            <button type='submit' data-id='{{item.id}}' bindtap='submit' class='submit2'>确认</button>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class='foot'>
+    <view class='footer'>
+      <button type='button' class='button'>邀请好友</button>
+    </view>
+  </view>
+</view>
