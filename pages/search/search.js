@@ -1,7 +1,6 @@
 // pages/search/search.js
 var searchValue = ''
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -35,7 +34,7 @@ Page({
   suo: function (e) {
     var that = this;
     wx.request({
-      url: 'https://go.zhangzw.top/brand1/web/search/index',  
+      url: 'https://go.zhangzw.top/brand2/web/search/index',  
       method: 'POST',
       data: { 
         search: that.data.searchValue,

@@ -10,10 +10,7 @@
           <text class='name'>{{item.from}}</text>
           <text class='time'>{{item.create_time}}</text>
         </view>
-        <view class='awear'>
-          <image class='aImg' src='../../img/goden.png'></image>
-          <text class='goden'>{{item.money}}个金币</text>
-        </view>
+       
       </view>
       <view class='content'>
         <text class='detail'>{{item.content}}</text>

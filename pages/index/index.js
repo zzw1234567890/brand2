@@ -1,6 +1,7 @@
 //index.js
 var that;
 var index;
+var index2;
 Page({
   /**
    * 页面的初始数据
@@ -326,7 +327,7 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success: function (e) {
-        console.log(e.data);
+        // console.log(e.data);
         that.setData({
           finish: e.data
         })
@@ -344,26 +345,13 @@ Page({
     wx.navigateTo({
       url: '../detail/detail?id=' + that.data.brand[index].id,
     })
-    // console.log(that.data.brand[index].id);
-    // wx.setStorageSync("id", that.data.brand[index].id)
-
-    // wx.request({
-    //   url: 'https://go.zhangzw.top/brand2/web/need/get',
-    //   method: 'POST',
-    //   data: {
-    //     end: 0,
-    //     page: 1,
-    //   },
-    //   header: {
-    //     "content-type": "application/x-www-form-urlencoded"
-    //   },
-    //   success: function (e) {
-    //     // console.log(e.data[index].id)
-    //     
-    //   }
-    // })
-
-
+  },
+  detail2: function (e) {
+    index2 = e.currentTarget.dataset.index;
+    // console.log(e)
+    wx.navigateTo({
+      url: '../detail/detail?id=' + that.data.finish[index2].id,
+    })
   },
   search: function () {
     wx.navigateTo({
