@@ -1,3 +1,4 @@
+<!--pages/searcher/searcher.wxml-->
 <!--pages/search/search.wxml-->
 <view class="container">
   <view class='search'>
@@ -8,11 +9,9 @@
     </view>
     <view class='tap' bindtap="suo">搜索</view>
   </view>
-
   <view class='none' hidden='{{none}}'>
     <text class='no'>没有找到搜索的内容...</text>
   </view>
-
   <view class="hot" hidden='{{view}}'>
     <view class="ci">热搜</view>
     <view class="res">
@@ -21,7 +20,7 @@
   </view>
 <view class='main' hidden='{{sview}}'>
     <view class='contain'>
-      <view class='box' wx:for="{{brand}}" wx:for-index="index" wx:key='*this' data-index="{{index}}" bindtap='detail'>
+      <view class='box' wx:for="{{finish}}" wx:for-index="index" wx:key='*this' data-index="{{index}}" bindtap='detail'>
         <view class='top'>
           <view class='header'>
             <image class='hIcon' src='{{item.pic}}'></image>

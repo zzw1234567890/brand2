@@ -13,13 +13,14 @@
       </view>
     </view>
   </view>
-  <view class='searchContain'>
-    <view class='search'>
-      <image class='icon' src='../../img/search2.png' />
-      <input class='searchItem' type='text' disabled placeholder='请输入关键词搜索' placeholder-class="placeholder" bindtap='search'></input>
-    </view>
-  </view>
+
   <view class='main' hidden='{{sview}}'>
+    <view class='searchContain'>
+      <view class='search'>
+        <image class='icon' src='../../img/search2.png' />
+        <input class='searchItem' type='text' disabled placeholder='请输入关键词搜索' placeholder-class="placeholder" bindtap='search'></input>
+      </view>
+    </view>
     <view class='contain'>
       <view class='box' wx:for="{{brand}}" wx:for-index="index" wx:key='*this' data-index="{{index}}" bindtap='detail'>
         <view class='top'>
@@ -66,6 +67,12 @@
     </view>
   </view>
   <view class='main' hidden='{{sview2}}'>
+    <view class='searchContain'>
+      <view class='search'>
+        <image class='icon' src='../../img/search2.png' />
+        <input class='searchItem' type='text' disabled placeholder='请输入关键词搜索' placeholder-class="placeholder" bindtap='searcher'></input>
+      </view>
+    </view>
     <view class='contain'>
       <view class='box' wx:for="{{finish}}" wx:for-index="index" wx:key='*this' data-index="{{index}}" bindtap='detail2'>
         <view class='top'>
@@ -77,7 +84,7 @@
             <text class='time'>{{item.time}}</text>
           </view>
           <view class='now'>
-            <text class='zhuangtai'>{{item.now}}</text>
+            <text class='zhuangtai2'>{{item.now}}</text>
           </view>
         </view>
         <view class='content'>

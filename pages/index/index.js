@@ -12,6 +12,7 @@ Page({
     hover: "navTitle",
     hovers: "navTitle",
     page: 1,
+    end:0,
     brand: [
       {
         "pic": "../../img/header.jpg",
@@ -170,6 +171,23 @@ Page({
         })
       }
     })
+    wx.request({
+      url: 'https://go.zhangzw.top/brand2/web/need/get',
+      method: 'POST',
+      data: {
+        end: 1,
+        page: 1
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      success: function (e) {
+        // console.log(e.data);
+        that.setData({
+          finish: e.data,
+        })
+      }
+    })
   },
 
   /**
@@ -198,38 +216,74 @@ Page({
    */
   onPullDownRefresh() {
     that = this;
+    console.log(that.data.end);
+    if(that.data.end == 0){
+      wx.showNavigationBarLoading() //在标题栏中显示加载
+      that.data.page = 1;
+      wx.request({
+        url: 'https://go.zhangzw.top/brand2/web/need/get',
+        method: 'POST',
+        data: {
+          end: that.data.end,
+          page: that.data.page,
+        },
+        header: {
+          "content-type": "application/x-www-form-urlencoded"
+        },
+        success: function (e) {
+          // console.log(e.data);
+          that.setData({
+            brand: e.data,
+            hover: "hover",
+            hovers: "navTitle",
+          })
+        },
+        complete: function (e) {
+          wx.showLoading({
+            title: '加载中',
+          })
+          setTimeout(function () {
+            wx.hideLoading()
+          }, 2000)
+          wx.hideNavigationBarLoading() //完成停止加载
+          // wx.stopPullDownRefresh() //停止下拉刷新
+        }
+      })
+    }else{
+      wx.request({
+        url: 'https://go.zhangzw.top/brand2/web/need/get',
+        method: 'POST',
+        data: {
+          end: 1,
+          page: that.data.page,
+        },
+        header: {
+          "content-type": "application/x-www-form-urlencoded"
+        },
+        success: function (e) {
+          // console.log(e.data);
+          that.setData({
+            finish: e.data,
+            hovers: "hover",
+            hover: "navTitle",
+          })
+        },
+        complete: function (e) {
+          wx.showLoading({
+            title: '加载中',
+          })
+          setTimeout(function () {
+            wx.hideLoading()
+          }, 2000)
+          wx.hideNavigationBarLoading() //完成停止加载
+          // wx.stopPullDownRefresh() //停止下拉刷新
+        }
+      })
+    }
     // console.log('--------下拉刷新-------')
-    wx.showNavigationBarLoading() //在标题栏中显示加载
-    that.data.page = 1;
-    wx.request({
-      url: 'https://go.zhangzw.top/brand2/web/need/get',
-      method: 'POST',
-      data: {
-        end: 0,
-        page: that.data.page,
-      },
-      header: {
-        "content-type": "application/x-www-form-urlencoded"
-      },
-      success: function (e) {
-        // console.log(e.data);
-        that.setData({
-          brand: e.data,
-          hover: "hover",
-          hovers: "navTitle",
-        })
-      },
-      complete: function (e) {
-        wx.showLoading({
-          title: '加载中',
-        })
-        setTimeout(function () {
-          wx.hideLoading()
-        }, 2000)
-        wx.hideNavigationBarLoading() //完成停止加载
-        // wx.stopPullDownRefresh() //停止下拉刷新
-      }
-    })
+    
+    // ////
+    
   },
 
   /**
@@ -238,48 +292,98 @@ Page({
   onReachBottom: function () {
     that = this;
     // console.log('--------上拉加载-------')
-    wx.showNavigationBarLoading()
-    that.data.page += 1;
-    wx.request({
-      url: 'https://go.zhangzw.top/brand2/web/need/get',
-      method: 'POST',
-      data: {
-        end: 0,
-        page: that.data.page,
-        last: that.data.brand[that.data.brand.length - 1].id
-      },
-      header: {
-        "content-type": "application/x-www-form-urlencoded"
-      },
-      success: function (e) {
-        that.data.brand = that.data.brand.concat(e.data);
-        that.setData({
-          brand: that.data.brand,
-          hover: "hover",
-          hovers: "navTitle",
-        })
-        // console.log(e.data.length);        
-      },
-      complete: function (e) {
-        if (e.data.length == 0) {
-          wx.showToast({
-            title: '已经见底啦',
+    if(that.data.end == 0){
+      wx.showNavigationBarLoading()
+      that.data.page += 1;
+      wx.request({
+        url: 'https://go.zhangzw.top/brand2/web/need/get',
+        method: 'POST',
+        data: {
+          end: 0,
+          page: that.data.page,
+          last: that.data.brand[that.data.brand.length - 1].id
+        },
+        header: {
+          "content-type": "application/x-www-form-urlencoded"
+        },
+        success: function (e) {
+          that.data.brand = that.data.brand.concat(e.data);
+          console.log(that.data.brand);
+          console.log(e.data);
+          that.setData({
+            brand: that.data.brand,
+            hover: "hover",
+            hovers: "navTitle",
           })
-          setTimeout(function () {
-            wx.hideLoading()
-          }, 2000)
-        } else {
-          wx.showLoading({
-            title: '加载中',
-          })
-          setTimeout(function () {
-            wx.hideLoading()
-          }, 2000)
+          // console.log(e.data.length);        
+        },
+        complete: function (e) {
+          if (e.data.length == 0) {
+            wx.showToast({
+              title: '已经见底啦',
+            })
+            setTimeout(function () {
+              wx.hideLoading()
+            }, 2000)
+          } else {
+            wx.showLoading({
+              title: '加载中',
+            })
+            setTimeout(function () {
+              wx.hideLoading()
+            }, 2000)
+          }
+          wx.hideNavigationBarLoading() //完成停止加载
+          // wx.stopPullDownRefresh() //停止下拉刷新
         }
-        wx.hideNavigationBarLoading() //完成停止加载
-        // wx.stopPullDownRefresh() //停止下拉刷新
-      }
-    })
+      })
+    }else{
+      wx.request({
+        url: 'https://go.zhangzw.top/brand2/web/need/get',
+        method: 'POST',
+        data: {
+          end: 1,
+          page: that.data.page,
+          last: that.data.finish[that.data.finish.length - 1].id
+        },
+        header: {
+          "content-type": "application/x-www-form-urlencoded"
+        },
+        success: function (e) {
+          // console.log(e.data)
+          that.data.finish = that.data.finish.concat(e.data);
+          // console.log(that.data.finish);
+          that.setData({
+            finish: that.data.finish,
+            hovers: "hover",
+            hover: "navTitle",
+          })
+          // console.log(e.data.length);
+        },
+        complete: function (e) {
+          if (e.data.length == 0) {
+            wx.showToast({
+              title: '已经见底啦',
+            })
+            setTimeout(function () {
+              wx.hideLoading()
+            }, 2000)
+          } else {
+            wx.showLoading({
+              title: '加载中',
+            })
+            setTimeout(function () {
+              wx.hideLoading()
+            }, 2000)
+          }
+          wx.hideNavigationBarLoading() //完成停止加载
+
+        }
+      })
+    }
+    
+    //
+    
   },
 
   /**
@@ -290,54 +394,23 @@ Page({
   },
   touch: function (e) {
     that = this;
-    wx.request({
-      url: 'https://go.zhangzw.top/brand2/web/need/get',
-      method: 'POST',
-      data: {
-        end: 0,
-        page: 1
-      },
-      header: {
-        "content-type": "application/x-www-form-urlencoded"
-      },
-      success: function (e) {
-        that.setData({
-          brand: e.data
-        })
-        that.setData({
-          sview: false,
-          sview2: true,
-          hover: "hover",
-          hovers: "navTitle",
-        })
-      }
+    that.setData({end:0});
+    that.setData({
+      sview: false,
+      sview2: true,
+      hover: "hover",
+      hovers: "navTitle",
     })
 
   },
   touch2: function (e) {
     that = this;
-    wx.request({
-      url: 'https://go.zhangzw.top/brand2/web/need/get',
-      method: 'POST',
-      data: {
-        end: 1,
-        page: 1
-      },
-      header: {
-        "content-type": "application/x-www-form-urlencoded"
-      },
-      success: function (e) {
-        // console.log(e.data);
-        that.setData({
-          finish: e.data
-        })
-        that.setData({
-          sview: true,
-          sview2: false,
-          hovers: "hover",
-          hover: "navTitle",
-        })
-      }
+    that.setData({end:1});
+    that.setData({
+      sview: true,
+      sview2: false,
+      hovers: "hover",
+      hover: "navTitle",
     })
   },
   detail: function (e) {
@@ -356,6 +429,11 @@ Page({
   search: function () {
     wx.navigateTo({
       url: '../search/search',
+    })
+  },
+  searcher: function () {
+    wx.navigateTo({
+      url: '../searcher/searcher',
     })
   },
 })

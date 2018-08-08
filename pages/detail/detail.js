@@ -11,6 +11,7 @@ Page({
   data: {
     sview2: true,
     sview3: false,
+    zhuangtai:'zhuangtai',
     mask: true,
     showview: true,
     ing: false,
@@ -136,6 +137,7 @@ Page({
             is_vote: e.data.is_vote,
             ing: true,
             done: false,
+            zhuangtai: 'zhuangtai2',
           })
         } else {
           // console.log('sss')
@@ -155,6 +157,7 @@ Page({
             vote: e.data.options,
             Brands: e.data.options,
             is_vote: e.data.is_vote,
+            zhuangtai: 'zhuangtai',
           })
           countDown_time = that.data.hhh + ':' + that.data.mmm + ':' + that.data.sss;
           that.count_down(countDown_time)

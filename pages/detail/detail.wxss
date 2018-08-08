@@ -370,7 +370,7 @@ float: left;
 }
 
 .Tex{
-  width: auto;
+  width: 90%;
   height: 80rpx;
   line-height: 80rpx;
   display: block;
@@ -381,6 +381,9 @@ float: left;
    overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.Tex2{
+  width: auto;
 }
 .foot {
   width: 100%;

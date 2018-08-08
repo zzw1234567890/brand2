@@ -11,7 +11,7 @@
           <text class='time'>{{time}}</text>
         </view>
         <view class='now'>
-          <text class='zhuangtai'>{{now}}</text>
+          <text class='{{zhuangtai}}'>{{now}}</text>
         </view>
       </view>
       <view class='content'>
@@ -87,7 +87,7 @@
             </view>
             <view class='two'>
               <image class='b-pic' src='../../img/icon3.png'></image>
-              <text class='Tex'>{{item.vote}}</text>
+              <text class='Tex Tex2'>{{item.vote}}</text>
             </view>
           </view>
         </view>

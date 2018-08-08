@@ -1,3 +1,7 @@
+@import "../index/index.wxss";
+.main{
+  margin-top: 40rpx;
+}
 page{
     background: #f6f6f6;
 }
@@ -18,7 +22,7 @@ page{
 
 .searchItem {
   height: 60rpx;
-  width: 600rpx;
+  width: 550rpx;
   margin-left: 20rpx;
   /* margin: 0 auto; */
   background: white;
@@ -31,7 +35,7 @@ page{
   width: 50rpx;
   height: 50rpx;
   margin-top: 6rpx;
-  margin-left: 10rpx;
+   margin-left: -40rpx; 
   position: absolute;
 }
 
@@ -39,7 +43,7 @@ page{
   width: 40rpx;
   height: 40rpx;
   float: right;
-  margin-left: 550rpx;
+  margin-left: 500rpx;
   margin-top: -50rpx;
   position: absolute;
   z-index: 99;
@@ -51,7 +55,7 @@ page{
   height: 60rpx;
   width: 440rpx;
   font-size: 24rpx;
-  padding-left: 70rpx;
+  padding-left: 20rpx;
   z-index: 222;
 }
 
