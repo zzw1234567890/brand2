@@ -67,7 +67,7 @@
   </view>
   <view class='main' hidden='{{sview2}}'>
     <view class='contain'>
-      <view class='box' wx:for="{{finish}}" wx:for-index="index" wx:key='*this' bindtap='detail'>
+      <view class='box' wx:for="{{finish}}" wx:for-index="index" wx:key='*this' data-index="{{index}}" bindtap='detail2'>
         <view class='top'>
           <view class='header'>
             <image class='hIcon' src='{{item.pic}}'></image>
@@ -81,7 +81,13 @@
           </view>
         </view>
         <view class='content'>
-          <text class='Ques'>{{item.questions}}</text>
+          <view class='key'>
+            <text class='keyQues'>关键词 :</text>
+            <text class='keyQues1'>{{item.types}}</text>
+          </view>
+          <view class='nei'>
+            <text class='Ques'>{{item.questions}}</text>
+          </view>
         </view>
         <view class='bottom'>
           <view class='times'>
@@ -90,13 +96,13 @@
           </view>
           <view class='ans'>
             <image class='tIcon' src='../../img/ans.png'></image>
-            <text class='title'>{{item.people}}人回答</text>
+            <text class='title'>{{item.pepole}}人回答</text>
           </view>
         </view>
         <view class='gift'>
           <view class='gLeft'>
             <image class='goden' src='../../img/goden.png'></image>
-            <text class='much'>{{item.money}}个金币</text>
+            <text class='much'>{{item.gold}}个金币</text>
           </view>
           <view class='gRight'>
             <image class='sang' src='../../img/sang.png'></image>

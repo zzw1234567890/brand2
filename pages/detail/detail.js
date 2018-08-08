@@ -3,6 +3,7 @@ var that;
 var countDown_time;
 var index;
 var collect;
+var arrSrc = [];
 Page({
   /**
    * 页面的初始数据
@@ -10,10 +11,10 @@ Page({
   data: {
     sview2: true,
     sview3: false,
-    answer: false,
-    answer2: true,
     mask: true,
     showview: true,
+    ing: false,
+    done: true,
     collection: false,
     showvote: '已投票',
     searchValue: '',
@@ -25,67 +26,72 @@ Page({
     pepole: 0,
     types: '',
     now: '',
-    pic: '../../img/header.jpg',
     questions: '',
     username: '',
-    img: '../../img/sc2.png',
-    title: '收藏',
+    is_vote: 0,
     vote: [
       {
         "name": "CHANEL 香奈儿",
         "id": '01',
         "contents": '发猜数包的人设置问题和答案，只有提交的答案和出题答案一致才可以得到红包',
         "shows": false,
-        "vote": "2222"
+        "vote": "2222",
       },
       {
         "name": "CHANEL 香奈儿",
         "id": '02',
         "contents": '发猜数包的人设置问题和答案，只有提交的答案和出题答案一致才可以得到红包',
         "shows": false,
-        "vote": "2222"
+        "vote": "2222",
+        "is_vote": 0,
       },
       {
         "name": "CHANEL 香奈儿",
         "id": '03',
         "contents": '发猜数包的人设置问题和答案，只有提交的答案和出题答案一致才可以得到红包',
         "shows": false,
-        "vote": "2222"
+        "vote": "2222",
+        "is_vote": 0,
       },
       {
         "name": "CHANEL 香奈儿",
         "id": '04',
         "contents": '发猜数包的人设置问题和答案，只有提交的答案和出题答案一致才可以得到红包',
         "shows": false,
-        "vote": "2222"
+        "vote": "2222",
+        "is_vote": 0,
       },
       {
         "name": "CHANEL 香奈儿",
         "id": '05',
         "contents": '发猜数包的人设置问题和答案，只有提交的答案和出题答案一致才可以得到红包',
         "shows": false,
-        "vote": "2222"
+        "vote": "2222",
+        "is_vote": 0,
       },
       {
         "name": "CHANEL 香奈儿",
         "id": '06',
         "contents": '发猜数包的人设置问题和答案，只有提交的答案和出题答案一致才可以得到红包',
         "shows": false,
-        "vote": "2222"
+        "vote": "2222",
+        "is_vote": 0,
       },
       {
         "name": "CHANEL 香奈儿",
         "id": '07',
         "contents": '发猜数包的人设置问题和答案，只有提交的答案和出题答案一致才可以得到红包',
         "shows": false,
-        "vote": "2222"
+        "vote": "2222",
+        "is_vote": 0,
       },
       {
         "name": "CHANEL 香奈儿",
         "id": '08',
         "contents": '发猜数包的人设置问题和答案，只有提交的答案和出题答案一致才可以得到红包',
         "shows": false,
-        "vote": "2222"
+        "vote": "2222",
+        "is_vote": 0,
       },
 
     ],
@@ -114,24 +120,45 @@ Page({
       },
       success: function (e) {
         console.log(e.data)
-        that.setData({
-          gold: e.data.gold,
-          num: e.data.num,
-          pepole: e.data.pepole,
-          questions: e.data.questions,
-          username: e.data.username,
-          pic: e.data.pic,
-          now: e.data.now,
-          hhh: e.data.h,
-          mmm: e.data.i,
-          sss: e.data.s,
-          time:e.data.time,
-          types: e.data.types,
-          vote: e.data.options,
-          Brands: e.data.options
-        })
-        countDown_time = that.data.hhh + ':' + that.data.mmm + ':' + that.data.sss;
-        that.count_down(countDown_time)
+        if (!e.data.h || !e.data.i || !e.data.s) {
+          that.setData({
+            gold: e.data.gold,
+            num: e.data.num,
+            pepole: e.data.pepole,
+            questions: e.data.questions,
+            username: e.data.username,
+            pic: e.data.pic,
+            now: e.data.now,
+            time: e.data.time,
+            types: e.data.types,
+            vote: e.data.options,
+            Brands: e.data.options,
+            is_vote: e.data.is_vote,
+            ing: true,
+            done: false,
+          })
+        } else {
+          // console.log('sss')
+          that.setData({
+            gold: e.data.gold,
+            num: e.data.num,
+            pepole: e.data.pepole,
+            questions: e.data.questions,
+            username: e.data.username,
+            pic: e.data.pic,
+            now: e.data.now,
+            hhh: e.data.h,
+            mmm: e.data.i,
+            sss: e.data.s,
+            time: e.data.time,
+            types: e.data.types,
+            vote: e.data.options,
+            Brands: e.data.options,
+            is_vote: e.data.is_vote,
+          })
+          countDown_time = that.data.hhh + ':' + that.data.mmm + ':' + that.data.sss;
+          that.count_down(countDown_time)
+        }
       }
     })
   },
@@ -200,8 +227,12 @@ Page({
       if (sss > 0) {
         sss--
       } else {
-        // console.log('时间到')
+        console.log('时间到')
         clearInterval(Interval)
+        that.setData({
+          ing: true,
+          done: false,
+        })
       }
       if (sss == 0) {
         if (mmm > 0) {
@@ -221,21 +252,6 @@ Page({
       })
     }, 1000)
   },
-  sc: function () {
-    that = this;
-    if (that.data.title == "收藏") {
-      that.setData({
-        img: '../../img/sc.png',
-        title: '已收藏'
-      })
-    }
-    else {
-      that.setData({
-        img: '../../img/sc2.png',
-        title: '收藏'
-      })
-    }
-  },
   aware: function () {
     wx.navigateTo({
       url: '../rule/rule',
@@ -248,23 +264,18 @@ Page({
   },
   //查看回答
   answer: function () {
-    that = this;
-    if (that.data.answer == false) {
+    that = this; 
       that.setData({
         sview2: false,
         sview3: true,
-        answer: true,
-        answer2: false,
       })
-    }
-    else {
-      that.setData({
-        sview3: false,
-        sview2: true,
-        answer2: true,
-        answer: false,
-      })
-    }
+  },
+  tuopiao:function(){
+    that = this;
+    that.setData({
+      sview3: false,
+      sview2: true,
+    })
   },
   searchValueInput: function (e) {
     var value = e.detail.value;
@@ -348,25 +359,24 @@ Page({
     }
   },
   toCollect: function (e) {
-    // console.log(that.data.vote[index].id)
     that = this;
     index = e.currentTarget.dataset.index;
-    if (that.data.vote[index].isvote == 1) {
+    console.log(that.data.is_vote)
+    if (that.data.is_vote == 1) {
       collect = true
     } else {
       collect = false
+      that.showModal();
     }
-    that.showModal();
+    return;
   },
   showModal: function (e) {
     var that = this;
     // console.log(that.data.vote[index].vote)
     wx.showModal({
       title: '提示',
-      content: "您确定要投票吗？",
+      content: "您确定要给它投票吗？",
       showCancel: true,
-      // cancelText: "取消111",
-      // cancelColor: "#000",
       confirmText: collect ? "取消投票" : "投票",
       confirmColor: "#166fb4",
       success: function (res) {
@@ -383,10 +393,28 @@ Page({
               "content-type": "application/x-www-form-urlencoded"
             },
             success: function (e) {
+              console.log(e.data)
+              that.setData({ is_vote: e.data })
             }
           })
         }
       }
     })
+  },
+  //预览图片
+  previewImg: function (e) {
+    that = this;
+    var index = e.currentTarget.dataset.index;
+    var Pic = that.data.vote;
+    for (var a = 0; a < Pic.length; a++) {
+      var temp = Pic[a].img;
+      arrSrc.push(temp)
+    }
+    // console.log(arrSrc)
+    wx.previewImage({
+      current: Pic[index].img, //当前图片地址
+      urls: arrSrc, //所有要预览的图片的地址集合 数组形式
+    });
+    // console.log(Pic[index].pic);
   },
 })

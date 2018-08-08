@@ -74,6 +74,13 @@
   text-align: center;
   border-radius: 10rpx;
 }
+.realx2 {
+  width: 100%;
+  height: 2rpx;
+  background: #f4f4f4;
+  /* text-align: center; */
+  /* border-radius: 10rpx; */
+}
 
 .bottom {
   width: 100%;
@@ -344,15 +351,15 @@ height: 80rpx;
 float: left;
 }
 .one{
-  width: 60%;
+  width: 70%;
   height: 80rpx;
-  /* background: yellow; */
+   /* background: yellow;  */
   float: left;
 }
 .two{
-  width: 40%;
+  width: 30%;
   height: 80rpx;
-   /* background: gray;  */
+    /* background: gray;   */
   float: left;  
 }
 .b-pic{
@@ -361,6 +368,7 @@ float: left;
   float: left;
   margin: 10rpx;
 }
+
 .Tex{
   width: auto;
   height: 80rpx;
@@ -369,6 +377,10 @@ float: left;
   float: left;
   /* background: palegoldenrod; */
   font-size: 14px;
+  color: #444;
+   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .foot {
   width: 100%;
