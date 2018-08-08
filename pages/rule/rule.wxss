@@ -1,1 +1,14 @@
 /* pages/rule/rule.wxss */
+.text1{
+  width:90%;
+  font-size: 30rpx;
+  margin-top:20rpx;
+}
+.title{
+  margin-bottom: 20rpx;
+  color:#FF521A;
+}
+.content{
+  text-align: justify;
+  color:black;
+}

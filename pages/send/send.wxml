@@ -1,0 +1,72 @@
+<!--pages/send/send.wxml-->
+<view class="all">
+  <image class="bg" src='/img/bg.png'> </image>
+
+  <view class="form">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="idea">
+        <text>我想买</text>
+        <view class="text">
+          <input name="type" class="input" maxlength='10' type="text" placeholder='例如：手机/口红' auto-focus value="{{searchValue}}" bindinput="searchValueInput" bindchange="bindchange" />
+          <view class="sure" bindtap='suo'>确定</view>
+        </view>
+      </view>
+
+      <view class="wu" hidden='{{view}}'>
+        <text>没有找到您想买的物品...</text>
+      </view>
+
+      <view class="request">
+        <text>具体要求</text>
+        <textarea value='{{description}}' name="description" class=' des ' placeholder='例如：价格2000左右/主要用来通讯 ' bindblur="bindTextAreaBlur" />
+      </view>
+
+      <checkbox-group class="checkbox-group" bindchange="checkboxChange" hidden='{{none}}'>
+        <text>选择品牌</text>
+        <label  class="checkbox" wx:for="{{items}}" wx:key="*this">
+          <checkbox value="{{item.id}}" checked="{{item.checked}}" color="#FF521A" />{{item.name}}
+        </label>
+      </checkbox-group>
+
+      <view class="money">
+        <text>选择赏金</text>
+        <view class="jin">
+          <image src='/img/money.png ' class="pic"></image>
+          <input name="money" class="{{inputclass}}" type='number' maxlength='6 ' placeholder='请输入您所发起的赏金' value='{{money}}' bindinput='inputmoney'></input>
+        </view>
+      </view>
+
+      <view class='date '>
+        <text>问题有效期(小时)</text>
+        <slider value='{{date}}'name="date" max="72" step="1" min="1" show-value="true" bindchange="listenerSlider" activeColor="#FF521A" />
+      </view>
+
+      <view class="switch">
+        <text>是否公开</text>
+        <switch checked='{{top}}' name="top" class="switch1" color="#FF521A" bindchange="switch1Change" />
+      </view>
+
+      <button class="submit" form-type='submit'> 发布问题 </button>
+
+      <view class='rule'>
+        <navigator url="/pages/rule/rule?title=rule" hover-class="navigator-hover">金币领取规则</navigator>
+      </view>
+
+
+
+
+
+
+
+
+
+    </form>
+  </view>
+
+
+
+
+
+
+
+</view>

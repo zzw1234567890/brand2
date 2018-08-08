@@ -8,7 +8,8 @@
     "pages/search/search",
     "pages/rule/rule",
     "pages/rank/rank",
-    "pages/searcher/searcher"
+    "pages/searcher/searcher",
+    "pages/send/send"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -27,8 +28,8 @@
         "selectedIconPath": "img/index2.png"
       },
       {
-        "pagePath": "pages/main/main",
-        "text": "测试",
+        "pagePath": "pages/send/send",
+        "text": "发布",
         "iconPath": "img/add2.png",
         "selectedIconPath": "img/add2.png"
       },

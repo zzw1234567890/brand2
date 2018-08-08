@@ -61,6 +61,12 @@
 					"name": "rank",
 					"pathName": "pages/rank/rank",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "send",
+					"pathName": "pages/send/send",
+					"query": ""
 				}
 			]
 		}

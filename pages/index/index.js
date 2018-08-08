@@ -308,8 +308,8 @@ Page({
         },
         success: function (e) {
           that.data.brand = that.data.brand.concat(e.data);
-          console.log(that.data.brand);
-          console.log(e.data);
+          // console.log(that.data.brand);
+          // console.log(e.data);
           that.setData({
             brand: that.data.brand,
             hover: "hover",
