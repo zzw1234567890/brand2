@@ -1,0 +1,180 @@
+/* pages/send/send.wxss */
+
+page {
+  background: #e8e6e5;
+}
+
+.all {
+  width: 100%;
+  height: auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.bg {
+  width: 100%;
+  height: 300rpx;
+}
+
+form {
+  width: 80%;
+  height: auto;
+}
+
+.form {
+  width: 80%;
+  height: auto;
+  background: white;
+  position: absolute;
+  top: 230rpx;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.idea {
+  width: 100%;
+  height: 130rpx;
+  color: #686666;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  margin-left: 10rpx;
+
+}
+
+.wu {
+  width: 100%;
+  font-size: 30rpx;
+  color: #FF521A;
+  text-align: center;
+}
+
+.input {
+  width: 70%;
+  height: 50rpx;
+  padding-left: 10rpx;
+  float: left;
+
+}
+
+.text {
+  margin-top: 20rpx;
+  width: 90%;
+  height: 50rpx;
+  border-bottom: 3rpx solid #e6e6e6
+}
+
+.sure {
+  width: 20%;
+  float: right;
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #ff521a;
+}
+
+.request {
+  width: 100%;
+  height: 300rpx;
+  color: #686666;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  margin-left: 10rpx;
+}
+
+.des {
+  width: 90%;
+  margin-top: 20rpx;
+  height: 230rpx;
+  display: block;
+  overflow: hidden;
+  border: 3rpx solid #e6e6e6;
+  padding-left: 10rpx;
+}
+
+.checkbox-group {
+  width: 100%;
+  height: auto;
+  color: #686666;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  margin-left: 10rpx;
+}
+
+.checkbox {
+  width: 90%;
+  margin-top: 20rpx;
+  height: 40rpx;
+  display: block;
+  padding-left: 10rpx;
+}
+
+.money {
+  width: 100%;
+  height: auto;
+  color: #686666;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  margin-left: 10rpx;
+}
+
+.jin {
+  width: 90%;
+  margin-top: 20rpx;
+  height: 50rpx;
+  padding-left: 10rpx;
+  border-bottom: 3rpx solid #e6e6e6
+}
+
+.pic {
+  width: 40rpx;
+  height: 50rpx;
+  float: left;
+}
+
+.num {
+  width: 82%;
+  height: 50rpx;
+}
+.error {
+  width: 82%;
+  height: 50rpx;
+  color:red;
+}
+
+.date {
+  width: 100%;
+  height: auto;
+  color: #686666;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  margin-left: 10rpx;
+}
+
+.switch {
+  width: 100%;
+  height: auto;
+  color: #686666;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  margin-left: 10rpx;
+}
+
+.switch1 {
+  margin-left: 10rpx;
+}
+
+.submit {
+  margin-top: 30rpx;
+  width: 80%;
+  margin-bottom: 30rpx;
+  background: #ff521a;
+  color: #fff;
+}
+.rule{
+  text-align: center;
+  font-size:28rpx;
+  color:cornflowerblue;
+  
+}

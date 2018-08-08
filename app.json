@@ -7,7 +7,8 @@
     "pages/detail/detail",
     "pages/search/search",
     "pages/rule/rule",
-    "pages/rank/rank"
+    "pages/rank/rank",
+    "pages/send/send"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,8 +27,8 @@
         "selectedIconPath": "img/index2.png"
       },
       {
-        "pagePath": "pages/main/main",
-        "text": "测试",
+        "pagePath": "pages/send/send",
+        "text": "发布",
         "iconPath": "img/add2.png",
         "selectedIconPath": "img/add2.png"
       },

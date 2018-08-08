@@ -1,2 +1,19 @@
 <!--pages/rule/rule.wxml-->
-<text>pages/rule/rule.wxml</text>
+<view class="container">
+<view class="text1">
+<view class="title">一、参与问题解答任务</view>
+<view class="content">参与问题解答任务-转发问题或联系发起人提供解决方案；发起人在会话中确认采纳其中一个答案。发放金币，金币总额由发起人的赏金所定。</view>
+</view>
+
+<view class="text1">
+<view class="title">二、金币领取</view>
+<view class="content">一人得奖：由发起人直接分享给解决者，解决方案被采纳后可直接领取悬赏金币。</view>
+<view class="content">二人以上得奖：解决者与发起人之间有传播者，悬赏的金币便会抽取20%给予传播者。</view>
+</view>
+
+<view class="text1">
+<view class="title">三、金币发放</view>
+<view class="content">当问题结束时，发起者会选择所采纳的答案，平台将会把金币发放到用户的金币余额中。</view>
+</view>
+
+</view>
