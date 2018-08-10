@@ -1,0 +1,69 @@
+<view class='bg'>
+
+  <view class='both'>
+
+    <view class='header'>
+      <view class='userAvatarUrl'>
+        <open-data type='userAvatarUrl' class='photo'></open-data>
+      </view>
+      <view class='userNickName'>
+        <open-data type='userNickName'></open-data>
+      </view>
+    </view>
+
+    <view class='coverbody'>
+      <view class='body'>
+
+        <view class='goldcoin common' bindtap='goldcoin'>
+          <view>
+            <image src='../../images/goldcoin.png' class='common_img'></image>
+            <text>我的金币</text>
+          </view>
+          <view class='rightArrow'></view>
+        </view>
+
+        <view class='attend common' bindtap='attend'>
+          <view>
+            <image src='../../images/attend.png' class='common_img'></image>
+            <text>我的参与</text>
+          </view>
+          <view class='rightArrow'></view>
+        </view>
+
+        <view class='release common' bindtap='release'>
+          <view>
+            <image src='../../images/release.png' class='common_img'></image>
+            <text>我的发布</text>
+          </view>
+          <view class='rightArrow'></view>
+        </view>
+
+        <view class='release common' bindtap='purchase'>
+          <view>
+            <image src='../../images/collect.png' class='common_img'></image>
+            <text>我的购买</text>
+          </view>
+          <view class='rightArrow'></view>
+        </view>
+
+        <button class='invite' open-type='share'>
+          <view>
+            <image src='../../images/invite.png' class='invitation'></image>
+            <text>邀请好友</text>
+          </view>
+          <view class='rightArrow'></view>
+        </button>
+
+        <view class='help common' bindtap='help'>
+          <view>
+            <image src='../../images/help.png' class='common_img'></image>
+            <text>查看帮助</text>
+          </view>
+          <view class='rightArrow'></view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</view>

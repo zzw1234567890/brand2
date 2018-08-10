@@ -1,0 +1,187 @@
+.both .header {
+  width: 100%;
+  height: 300rpx;
+  /* background: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  background: linear-gradient(to bottom right, #ff521a, #ff8000);
+}
+
+.header .userAvatarUrl {
+  width: 25%;
+  border: 5rpx solid white;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.header .userNickName {
+  margin-top: 3%;
+  color: white;
+}
+
+.bg {
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+  background: #f5f5f5;
+  z-index: -10;
+}
+
+.body .top {
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* font-size: 33rpx; */
+}
+
+.body .top .myRelease {
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 50%;
+  text-align: center;
+  font-size: 37rpx;
+}
+
+.body .top .intermediate {
+  color: gray;
+  font-size: 40rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.body .top .myAttend {
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 50%;
+  text-align: center;
+  font-size: 37rpx;
+}
+
+.body .top .myPurchase {
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 50%;
+  text-align: center;
+  font-size: 37rpx;
+    color: #ff521a;
+}
+
+.body .bigbox {
+  width: 95%;
+  margin: 20rpx auto;
+  box-shadow: 0 4rpx 20rpx 2rpx #bdb4aa;
+}
+
+.body .box {
+  height: 160rpx;
+  background: white;
+  border-radius: 5rpx;
+  position: relative;
+  border-bottom: 2rpx solid #b5b3ac;
+}
+
+.body .box .question {
+  position: absolute;
+  width: 70%;
+  padding: 15rpx;
+  /* background: green; */
+  height: 90rpx;
+  margin: 0 auto;
+  font-size: 34rpx;
+}
+
+.body .box .underway {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 18rpx;
+  /* background: yellow; */
+  margin: 15rpx;
+  border: 2rpx solid #ff521a;
+  color: #ff521a;
+  border-radius: 10rpx;
+}
+
+.body .box .keyword {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 15rpx;
+  /* background: blue; */
+  font-size: 30rpx;
+  color: #373737;
+}
+
+.body .box .keyword1 {
+  display: inline-block;
+  color: #ff521a;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 150rpx;
+  line-height: 31rpx;
+}
+
+.body .box .deadline {
+  position: absolute;
+  padding: 10rpx;
+  font-size: 30rpx;
+  /* background: white; */
+  right: 0;
+  bottom: 0;
+  color: #b2a89d;
+}
+
+.body .base {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 60rpx;
+  font-size: 27rpx;
+  color: #87837a;
+  background: white;
+  padding: 0 15rpx;
+}
+
+.body .base text {
+  padding: 8rpx;
+}
+
+.body .base  image {
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+}
+
+.body .basement {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 60rpx;
+  font-size: 30rpx;
+  color: #575551;
+  background: #eee;
+  padding: 0 15rpx;
+}
+
+.body .basement text {
+  padding: 8rpx;
+}
+
+.body .basement .goldcoin image {
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+}
+
+.body .basement .reward image {
+  width: 60rpx;
+  height: 60rpx;
+  float: right;
+}

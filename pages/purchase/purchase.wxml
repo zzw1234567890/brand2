@@ -1,0 +1,63 @@
+<view class="bg">
+
+  <view class='both'>
+    <view class='header'>
+      <view class='userAvatarUrl'>
+        <open-data type='userAvatarUrl' class='photo'></open-data>
+      </view>
+      <view class='userNickName'>
+        <open-data type='userNickName'></open-data>
+      </view>
+    </view>
+
+    <view class='body'>
+
+      <view class='top'>
+        <view class='myRelease' bindtap='myRelease'>我的发布</view>
+        <view class='intermediate'>|</view>
+        <view class='myAttend' bindtap='myAttend'>我的参与</view>
+        <view class='intermediate'>|</view>
+        <view class='myPurchase' bindtap='myPurchase'>我的购买</view>
+      </view>
+
+      <view class='bigbox' wx:for="{{myRelease}}" wx:key='key' data-id='{{item.questionid}}' bindtap='getdetails' bindlongtap='delete' hidden='{{statue}}' data-index='{{index}}' data-deleteid='{{item.deleteid}}'>
+        <view class='box'>
+          <view class='question'>
+            {{item.topic}}
+          </view>
+          <view class='underway'>
+            {{item.underway?'已结束':'进行中'}}
+          </view>
+          <view class='keyword'>
+            关键词:
+            <view class='keyword1'>
+              {{item.keyword1}}
+            </view>
+          </view>
+          <view class='deadline'>
+            发布日期:{{item.releaseDate}}
+          </view>
+        </view>
+        <view class='base'>
+          <view class='browse'>
+            <image src='../../images/browse.png'></image>
+            <text>浏览{{item.browse}}次</text>
+          </view>
+          <view class='answer'>
+            <image src='../../images/answer.png'></image>
+            <text>回答{{item.answer}}次</text>
+          </view>
+        </view>
+        <view class='basement'>
+          <view class='goldcoin'>
+            <image src='../../images/goldcoin2.png'></image>
+            <text>{{item.goldcoin}}个金币</text>
+          </view>
+          <view class='reward'>
+            <image src='../../images/reward.png'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
