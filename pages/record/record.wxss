@@ -1,0 +1,35 @@
+.bg {
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+  background: #f5f5f5;
+  z-index: -10;
+}
+
+.records {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding:30rpx 30rpx 20rpx 30rpx;
+  /* padding-bottom: 10rpx; */
+  border-bottom: 2rpx solid #B6B6B6;
+  background: white;
+}
+.records .left .types{
+  font-size: 36rpx;
+  margin-bottom: 5px;
+}
+
+.records .left .date{
+  font-size: 32rpx;
+  color: #B6B6B6;
+}
+
+.red{
+  color: #FF3737;
+}
+
+.green{
+  color: green;
+}

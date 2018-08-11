@@ -5,7 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    balance:'0'
+  },
+  record:function(){
+    wx.navigateTo({
+      url: '../record/record',
+    })
   },
 
   /**
@@ -26,7 +31,22 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that = this;
+    wx.request({
+      url: 'https://go.zhangzw.top/brand2/web/user/getuser',
+      data: {
+        userid: wx.getStorageSync('userid')
+      },
+      method: "POST",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        that.setData({
+          balance: res.data.gold
+        })
+      }
+    })
   },
 
   /**

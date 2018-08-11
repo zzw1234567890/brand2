@@ -1,7 +1,10 @@
 {
   "pages": [
-    "pages/personal/personal",
     "pages/index/index",
+    "pages/record/record",
+    "pages/help/help",
+    "pages/goldcoin/goldcoin",
+    "pages/personal/personal",
     "pages/logs/logs",
     "pages/main/main",
     "pages/detail/detail",
@@ -10,11 +13,9 @@
     "pages/rank/rank",
     "pages/searcher/searcher",
     "pages/send/send",
-    "pages/goldcoin/goldcoin",
     "pages/attend/attend",
     "pages/release/release",
-    "pages/purchase/purchase",
-    "pages/help/help"
+    "pages/purchase/purchase"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,7 +1,7 @@
 <view class='bg'>
 
   <view class='header'>
-    金币余额：0
+    金币余额：{{balance}}
   </view>
 
   <view class='body_1'>
@@ -9,7 +9,7 @@
     <view class='withdraw'>金币提现</view>
   </view>
 
-  <view class='body_2'>
+  <view class='body_2' bindtap='record'>
     <view>
       <view class='details'>查看明细</view>
     </view>

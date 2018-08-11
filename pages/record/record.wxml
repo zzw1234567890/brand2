@@ -1,0 +1,12 @@
+<view class="bg">
+  <view class='records' wx:for="{{records}}" wx:key="key" hidden='{{statue}}'>
+    <view class='left'>
+      <view class='types'>{{item.types}}</view>
+      <view class='date'>{{item.date}}</view>
+    </view>
+    <view class='right {{item.color}}'>
+      {{item.count}}
+    </view>
+  </view>
+
+</view>
