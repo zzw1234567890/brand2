@@ -45,7 +45,9 @@ Page({
       url: 'https://go.zhangzw.top/brand2/web/user/getbuyneed', //仅为示例，并非真实的接口地址
       data: {
         last: 0,
-        userid: wx.getStorageSync('userid')
+        userid: wx.getStorageSync('userid'),
+        key1: wx.getStorageSync('key1'),
+        key1: wx.getStorageSync('realKey'),
       },
       method: "POST",
       header: {
@@ -92,7 +94,9 @@ Page({
             url: 'https://go.zhangzw.top/brand2/web/user/delbuyneed',
             data: {
               id: deleteid,
-              userid: wx.getStorageSync('userid')
+              userid: wx.getStorageSync('userid'),
+              key1: wx.getStorageSync('key1'),
+              key1: wx.getStorageSync('realKey'),
             },
             method: "POST",
             header: {
@@ -169,7 +173,9 @@ Page({
       url: 'https://go.zhangzw.top/brand2/web/user/getbuyneed', //仅为示例，并非真实的接口地址
       data: {
         last: lastid,
-        userid: wx.getStorageSync('userid')
+        userid: wx.getStorageSync('userid'),
+        key1: wx.getStorageSync('key1'),
+        key1: wx.getStorageSync('realKey'),
       },
       method: "POST",
       header: {

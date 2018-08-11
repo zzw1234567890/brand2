@@ -22,7 +22,9 @@ Page({
       url: 'https://go.zhangzw.top/brand2/web/need/discuss',
       method: 'POST',
       data: {
-        'option_id':options.id
+        'option_id':options.id,
+        key1: wx.getStorageSync('key1'),
+        key1: wx.getStorageSync('realKey'),
       },
       header: {
         "content-type": "application/x-www-form-urlencoded"

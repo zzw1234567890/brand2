@@ -42,6 +42,8 @@ Page({
       data: {
         search: that.data.searchValue,
         end:1,
+        key1: wx.getStorageSync('key1'),
+        key1: wx.getStorageSync('realKey'),
       },
       header: { 'content-type': 'application/x-www-form-urlencoded' },
       success: function (e) {
@@ -93,7 +95,10 @@ Page({
     wx.request({
       url: 'https://go.zhangzw.top/brand1/web/search/hot',
       method: 'POST',
-      data: {},
+      data: {
+        key1: wx.getStorageSync('key1'),
+        key1: wx.getStorageSync('realKey'),
+      },
       header: {
         "content-type": "application/x-www-form-urlencoded"
       },

@@ -455,6 +455,8 @@ Page({
         method: 'POST',
         data: {
           userid: wx.getStorageSync('userid'),
+          key1: wx.getStorageSync('key1'),
+          key1: wx.getStorageSync('realKey'),
         },
         header: {
           "content-type": "application/x-www-form-urlencoded"
@@ -490,6 +492,8 @@ Page({
       data: {
         userid: wx.getStorageSync('userid'),
         needid: that.data.id,
+        key1: wx.getStorageSync('key1'),
+        key1: wx.getStorageSync('realKey'),
       },
       header: {
         "content-type": "application/x-www-form-urlencoded"

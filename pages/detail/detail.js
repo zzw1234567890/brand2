@@ -118,6 +118,8 @@ Page({
       data: {
         need_id: options.id,
         user_id: wx.getStorageSync('userid'),
+        key1: wx.getStorageSync('key1'),
+        key1: wx.getStorageSync('realKey'),
       },
       header: {
         "content-type": "application/x-www-form-urlencoded"
@@ -341,7 +343,9 @@ Page({
         data: {
           userid: wx.getStorageSync('userid'),
           optionid: e.currentTarget.dataset.id,
-          content: that.data.searchValue
+          content: that.data.searchValue,
+          key1: wx.getStorageSync('key1'),
+          key1: wx.getStorageSync('realKey'),
         },
         header: {
           "content-type": "application/x-www-form-urlencoded"
@@ -431,6 +435,8 @@ Page({
               user_id: wx.getStorageSync("userid"),
               option_id: that.data.vote[index].id,
               need_id:that.data.id,
+              key1: wx.getStorageSync('key1'),
+              key1: wx.getStorageSync('realKey'),
             },
             header: {
               "content-type": "application/x-www-form-urlencoded"
