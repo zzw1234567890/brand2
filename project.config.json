@@ -63,7 +63,7 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 5,
 					"name": "send",
 					"pathName": "pages/send/send",
 					"query": ""

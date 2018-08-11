@@ -16,7 +16,16 @@ page {
 
 .bg {
   width: 100%;
-  height: 300rpx;
+  height: 200rpx;
+  background: #FF521A;
+  border-radius: 0rpx 0rpx 80rpx 80rpx;
+}
+.zi{
+  position: absolute;
+  font-size: 40rpx;
+  color:white;
+  top:50rpx;
+  left:22%;
 }
 
 form {
@@ -25,13 +34,14 @@ form {
 }
 
 .form {
-  width: 80%;
+  width: 90%;
   height: auto;
   background: white;
   position: absolute;
-  top: 230rpx;
+  top: 160rpx;
   border-radius: 10rpx;
   margin-bottom: 20rpx;
+  box-shadow: 5rpx 1rpx 40rpx 1rpx #888888;
 }
 
 .idea {

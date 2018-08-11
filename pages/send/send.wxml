@@ -1,6 +1,9 @@
 <!--pages/send/send.wxml-->
 <view class="all">
-  <image class="bg" src='/img/bg.png'> </image>
+
+  <view class="bg">
+  <view class="zi">让朋友圈解决您的问题</view>
+  </view>
 
   <view class="form">
     <form bindsubmit="formSubmit" bindreset="formReset">
@@ -43,7 +46,7 @@
 
       <view class="switch">
         <text>是否公开</text>
-        <switch checked='{{top}}' name="top" class="switch1" color="#FF521A" bindchange="switch1Change" />
+        <switch checked='{{top}}'name="top" class="switch1" color="#FF521A" bindchange="switch1Change" />
       </view>
 
       <button class="submit" form-type='submit'> 发布问题 </button>

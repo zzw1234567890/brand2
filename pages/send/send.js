@@ -10,7 +10,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    all: '',
     inputclass: 'num',
     items: [{
         value: '美国'
@@ -114,7 +113,7 @@ Page({
             view: false,
           });
         } else {
-          // console.log(e)
+          console.log(e)
           that.setData({
             view: true,
             none: false,
@@ -223,7 +222,6 @@ Page({
               money:'',
               date: '1',
               top:false,
-              view: true,
               none: true,
             });
           wx.switchTab({
