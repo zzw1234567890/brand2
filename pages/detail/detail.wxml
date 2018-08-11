@@ -55,20 +55,24 @@
             <image class='tIcon' src='../../img/ans.png'></image>
             <text class='title'>{{pepole}}人回答</text>
           </button>
-          <button class='friend' bindtap='tuopiao' disabled='{{tou}}'>
+          <button class='friend' hidden='{{toupai}}' bindtap='tuopiao' disabled='{{tou}}'>
             <image class='tIcon' src="../../img/toupaio.png"></image>
             <text class='title'>投票</text>
+          </button>
+          <button class='friend' hidden='{{cai}}' bindtap='caina'>
+            <image class=' tIcon' src="../../img/caina.png"></image>
+            <text class='title'>采纳</text>
           </button>
         </view>
       </view>
     </view>
   </view>
-  <view class='brand2' hidden='{{sview2}}'>
+  <view class='brand2' hidden='{{sview}}'>
     <view class='Title'>
-      <text class='titles'>请选择下列品牌查看回复：</text>
+      <text class='titles'>题主采纳的品牌：</text>
     </view>
-    <view class='main2'>
-      <view class='mainbox2' wx:for="{{Brands}}" wx:for-index="index" wx:key='*this'>
+   <view class='main2'>
+      <view class='mainbox2' wx:for="{{selectbrands}}" wx:for-index="index" wx:key='*this'>
         <view class='mImg2' data-index='{{index}}' bindtap='previewImg'>
           <image class='mIcon2' src='{{item.img}}'></image>
         </view>
@@ -88,6 +92,39 @@
             <view class='two'>
               <image class='b-pic' src='../../img/icon3.png'></image>
               <text class='Tex Tex2'>{{item.vote}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='brand2' hidden='{{sview2}}'>
+    <view class='Title'>
+      <text class='titles'>请选择下列品牌查看回复：</text>
+    </view>
+    <view class='main2'>
+      <view class='mainbox2' wx:for="{{Brands}}" wx:for-index="index" wx:key='*this'>
+        <view class='mImg2' data-index='{{index}}' bindtap='previewImg'>
+          <image class='mIcon2' src='{{item.img}}'></image>
+        </view>
+        <view class='dianji' data-id='{{item.id}}'>
+          <view class='dd' bindtap='look'>
+            <view class='huibnames' >
+              <text class='bnames'>{{item.name}}</text>
+            </view>
+          </view>
+          <view class='pBottom'>
+            <view class='two'  bindtap='look'>
+              <image class='b-pic' src='../../img/icon3.png'></image>
+              <text class='iconnum'>{{item.vote}}</text>
+            </view>
+            <view class='two two2' bindtap='look'>
+             <image class='b-pic' src='../../img/ans.png'></image>
+              <text class='iconnum iconnum2'>{{people}}人回复</text>
+            </view>
+            <view class='two3' bindtap='CaiNa'>
+             <image class='b-pic' src='../../img/caina.png'></image>
+              <text class='iconnum'>{{sename}}</text>
             </view>
           </view>
         </view>

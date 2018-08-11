@@ -58,22 +58,7 @@
       <view class='rule'>
         <navigator url="/pages/rule/rule?title=rule" hover-class="navigator-hover">金币领取规则</navigator>
       </view>
-
-
-
-
-
-
-
-
-
     </form>
   </view>
-
-
-
-
-
-
-
 </view>
+<button class='huoqu' hidden='{{huoqu}}' bindtap='huoqu'></button>

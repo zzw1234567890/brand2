@@ -2,14 +2,13 @@
 
 var searchValue = ''
 var max= ''
-
+var that;
 Page({
-
-
   /**
    * 页面的初始数据
    */
   data: {
+    huoqu:false,
     inputclass: 'num',
     tip: true,
     searchValue: '',
@@ -238,11 +237,11 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success: function (e) {
-        console.log(e)
+        // console.log(e)
         that.setData({
           max: e.data.gold,
         })
-        console.log(that.data.max)
+        // console.log(that.data.max)
       }
 
     })
@@ -260,7 +259,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    that = this;
+    if (wx.getStorageSync("avatar")) {
+      that.setData({ huoqu: true })
+    }
   },
 
   /**
@@ -296,5 +298,20 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+  huoqu: function (e) {
+    that = this;
+    wx.showModal({
+      title: '提示',
+      content: '请前往个人中心去授权~',
+      success: function (res) {
+        //确定
+        if (res.confirm) {
+          wx.switchTab({
+            url: '../personal/personal',
+          })
+        }
+      }
+    })
   }
 })
