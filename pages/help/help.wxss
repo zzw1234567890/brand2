@@ -18,12 +18,14 @@
 .common_question {
   line-height: 100rpx;
   padding-left: 30rpx;
+  font-size:32rpx;
 }
 
 .common_answer{
   display: block;
   line-height: 60rpx;
   padding: 0 30rpx;
+    font-size:30rpx;
 }
 
 .question1{
@@ -34,4 +36,5 @@
 .answer1{
     /* background: red; */
     background: white;
+
 }

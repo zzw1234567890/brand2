@@ -123,6 +123,9 @@ Page({
   },
   getdetails: function (e) {
     // console.log(e.currentTarget.dataset.id);
+    wx.navigateTo({
+      url: '../detail/detail?id=' + e.currentTarget.dataset.id,
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

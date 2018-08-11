@@ -1,7 +1,11 @@
 <view class='bg'>
 
   <view class='header'>
+<<<<<<< HEAD
     金币余额：{{balance}}
+=======
+    金币余额：{{gold}}
+>>>>>>> 6e703b8fcd0858b7a1b5e999102579a160026d25
   </view>
 
   <view class='body_1'>

@@ -1,15 +1,14 @@
 // pages/send/send.js
 
 var searchValue = ''
-var max= ''
-
+var max = '0'
+var that
 Page({
-
-
   /**
    * 页面的初始数据
    */
   data: {
+    huoqu:false,
     inputclass: 'num',
     tip: true,
     searchValue: '',
@@ -20,7 +19,7 @@ Page({
     description: '',
     money: '',
     date: '1',
-    top: false,
+    top: true,
 
   },
 
@@ -61,7 +60,7 @@ Page({
       searchValue: value,
       tip: false,
     });
-    console.log(value)
+    // console.log(value)
     if (value == "") {
       this.setData({
         tip: true,
@@ -81,7 +80,7 @@ Page({
       url: 'https://go.zhangzw.top/brand2/web/option/index',
       method: 'POST',
       data: {
-        type: that.data.searchValue,
+        types: that.data.searchValue,
         key1: wx.getStorageSync('key1'),
         key1: wx.getStorageSync('realKey'),
       },
@@ -89,7 +88,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function(e) {
-        // console.log(e.data)
+        console.log(e.data)
         wx.showToast({
           title: '正在查询中',
           icon: 'loading',
@@ -111,6 +110,7 @@ Page({
             type_id: e.data.type_id
           });
         }
+        console.log(that.data.items)
       },
       complete: function(e) {
 
@@ -126,9 +126,9 @@ Page({
 
   // 赏金数额判断
   inputmoney: function(e) {
-    var that=this
-    var max
-    console.log(that.data.max)
+    var that = this
+    that.data.max = parseInt(that.data.max)
+
     if (e.detail.value > that.data.max) {
       that.setData({
         inputclass: 'error'
@@ -146,6 +146,7 @@ Page({
 
     var that = this
     var max
+    that.data.max = parseInt(that.data.max)
     //判断
     if (e.detail.value.type == "" || e.detail.value.description == "" || e.detail.value.money == "" || that.data.brand == "") {
 
@@ -159,7 +160,7 @@ Page({
 
       })
     } else if (e.detail.value.money > that.data.max) {
-
+      // console.log(that.data.max)
       wx.showToast({
 
         title: '金币不足',
@@ -209,7 +210,7 @@ Page({
             description: '',
             money: '',
             date: '1',
-            top: false,
+            top: true,
             none: true,
           });
           wx.switchTab({
@@ -237,12 +238,14 @@ Page({
       header: {
         "content-type": "application/x-www-form-urlencoded"
       },
-      success: function (e) {
-        console.log(e)
-        that.setData({
+
+      success: function(e) {
+        e.data.gold = parseInt(e.data.gold)
+        that.data.max = parseInt(that.data.max)
+that.setData({
           max: e.data.gold,
         })
-        console.log(that.data.max)
+        // console.log(that.data.max)
       }
 
     })
@@ -260,7 +263,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    that = this;
+    if (wx.getStorageSync("avatar")) {
+      that.setData({ huoqu: true })
+    }
   },
 
   /**
@@ -296,5 +302,21 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+  huoqu: function (e) {
+    that = this;
+    wx.showModal({
+      title: '提示',
+      content: '请前往个人中心去授权~',
+      confirmColor: "#FF521A",
+      success: function (res) {
+        //确定
+        if (res.confirm) {
+          wx.switchTab({
+            url: '../personal/personal',
+          })
+        }
+      }
+    })
   }
 })
