@@ -20,7 +20,6 @@ Page({
     money: '',
     date: '1',
     top: false,
-
   },
 
 
@@ -80,7 +79,7 @@ Page({
       url: 'https://go.zhangzw.top/brand2/web/option/index',
       method: 'POST',
       data: {
-        type: that.data.searchValue,
+        types: that.data.searchValue,
         key1: wx.getStorageSync('key1'),
         key1: wx.getStorageSync('realKey'),
       },
@@ -304,6 +303,7 @@ Page({
     wx.showModal({
       title: '提示',
       content: '请前往个人中心去授权~',
+      confirmColor: "#FF521A",
       success: function (res) {
         //确定
         if (res.confirm) {

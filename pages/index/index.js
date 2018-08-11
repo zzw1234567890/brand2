@@ -172,7 +172,6 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success: function (e) {
-        // console.log(e.data);
         that.setData({
           brand: e.data,
           hover: "hover",
@@ -543,6 +542,7 @@ Page({
       wx.showModal({
         title: '提示',
         content: '请前往个人中心去授权~',
+        confirmColor: "#FF521A",
         success: function (res) {
           //确定
           if (res.confirm) {

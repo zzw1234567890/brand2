@@ -17,7 +17,7 @@ Page({
     sview3: false,
     toupai: false,
     sview:true,
-    cai: true,
+    // cai: true,
     hui: false,
     tou: false,
     zhuangtai: 'zhuangtai',
@@ -132,7 +132,7 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success: function (e) {
-        console.log(e.data)
+        // console.log(e.data)
         if (!e.data.h && !e.data.i && !e.data.s) {
           that.setData({
             gold: e.data.gold,
@@ -152,10 +152,10 @@ Page({
             zhuangtai: 'zhuangtai2',
             sview2: false,
             sview3: true,
-            hui: false,
+            hui: true,
             tou: false,
-            toupai: true,
-            cai: false,
+            toupai: false,
+            // cai: false,
             user_id: e.data.user_id,
             use_option: e.data.use_option,
           })
@@ -183,7 +183,9 @@ Page({
             hui: false,
             tou: true,
             toupai: false,
-            cai: true,
+            // cai: true,
+            user_id: e.data.user_id,
+            use_option: e.data.use_option,
           })
           countDown_time = that.data.hhh + ':' + that.data.mmm + ':' + that.data.sss;
           that.count_down(countDown_time)
@@ -324,10 +326,11 @@ Page({
   //查看回答
   answer: function () {
     that = this;
-    if (that.data.hui == true) {
+    if (that.data.toupai == false) {
       wx.showModal({
         title: '活动进行中...',
         content: '现在还不能查看~',
+        confirmColor: "#FF521A"
       })
     }
     else {
@@ -337,33 +340,11 @@ Page({
       })
     }
   },
-  caina:function(){
-    that=this;
-
-    // wx.request({
-    //   url: '',
-    //   method: 'POST',
-    //   data: {
-    //     userid: wx.getStorageSync('userid'),
-    //     key1: wx.getStorageSync('key1'),
-    //     key1: wx.getStorageSync('realKey'),
-    //   },
-    //   header: {
-    //     "content-type": "application/x-www-form-urlencoded"
-    //   },
-    //   success: function (e) {
-    //     that.setData({
-    //       sview: false,
-    //       sview2: true,
-    //       selectbrands:e.data
-    //     })
-    //   }
-    // })
-  },
   tuopiao: function () {
     wx.showModal({
       title: '活动已结束',
       content: '现在不能投票啦~~',
+      confirmColor: "#FF521A"
     })
   },
   searchValueInput: function (e) {
@@ -380,6 +361,7 @@ Page({
       wx.showModal({
         title: '提示',
         content: '您输入的内容为空',
+        confirmColor: "#FF521A"
       })
     } else {
       wx.request({
@@ -460,14 +442,23 @@ Page({
   toCollect: function (e) {
     that = this;
     index = e.currentTarget.dataset.index;
-    console.log(that.data.is_vote)
-    if (that.data.is_vote == 1) {
-      collect = true
-    } else {
-      collect = false
-      that.showModal();
+    // console.log(that.data.user_id)
+    if (that.data.user_id == wx.getStorageSync("userid")){
+      wx.showModal({
+        title: '提示',
+        content: "您是题主，不能投票哦~",
+        confirmColor: "#FF521A"
+      })
     }
-    return;
+    else{
+      if (that.data.is_vote == 1) {
+        collect = true
+      } else {
+        collect = false
+        that.showModal();
+      }
+      return;
+    }
   },
   showModal: function (e) {
     var that = this;
@@ -522,14 +513,14 @@ Page({
     // console.log(Pic[index].pic);
   },
   CaiNa:function(e){
-    // console.log('a')
+    var Index = e.currentTarget.dataset.index;
     that=this;
     if (that.data.user_id == wx.getStorageSync("userid")){
       wx.request({
         url: 'https://go.zhangzw.top/brand2/web/option/use',
         method: 'POST',
         data: {
-          option_id: that.data.id,
+          option_id: that.data.vote[Index].id,
           key1: wx.getStorageSync('key1'),
           key1: wx.getStorageSync('realKey'),
         },
@@ -537,8 +528,9 @@ Page({
           "content-type": "application/x-www-form-urlencoded"
         },
         success: function (e) {
+          // console.log('l')
           that.setData({
-            sename: '已采纳',
+            use_option:e.data.option_id
           })
         }
       })
@@ -547,6 +539,7 @@ Page({
       wx.showModal({
         title: '提示',
         content: '您不是题主，不能采纳~',
+        confirmColor: "#FF521A"
       })
     }
   }
