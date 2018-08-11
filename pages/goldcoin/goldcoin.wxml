@@ -1,0 +1,19 @@
+<view class='bg'>
+
+  <view class='header'>
+    金币余额：0
+  </view>
+
+  <view class='body_1'>
+      <view class='topup'>金币充值</view>
+    <view class='withdraw'>金币提现</view>
+  </view>
+
+  <view class='body_2'>
+    <view>
+      <view class='details'>查看明细</view>
+    </view>
+    <view class='rightArrow'></view>
+  </view>
+
+</view>
