@@ -1,6 +1,7 @@
 // pages/send/send.js
 
 var searchValue = ''
+var max= ''
 
 Page({
 
@@ -20,7 +21,7 @@ Page({
     money: '',
     date: '1',
     top: false,
-    max:'',
+
   },
 
 
@@ -125,28 +126,9 @@ Page({
 
   // 赏金数额判断
   inputmoney: function(e) {
-    var that = this
-    var max 
-    wx.request({
-      url: 'https://go.zhangzw.top/brand2/web/user/getuser',
-      method: 'POST',
-      data: {
-        userid: wx.getStorageSync("userid"),
-        key1: wx.getStorageSync('key1'),
-        key1: wx.getStorageSync('realKey'),
-      },
-      header: {
-        "content-type": "application/x-www-form-urlencoded"
-      },
-      success: function(e) {
-        // console.log(e)
-        that.setData({
-          max: e.data.gold,
-        })
-        // console.log(that.data.max)
-      }
-
-    })
+    var that=this
+    var max
+    console.log(that.data.max)
     if (e.detail.value > that.data.max) {
       that.setData({
         inputclass: 'error'
@@ -163,7 +145,7 @@ Page({
   formSubmit: function(e) {
 
     var that = this
-
+    var max
     //判断
     if (e.detail.value.type == "" || e.detail.value.description == "" || e.detail.value.money == "" || that.data.brand == "") {
 
@@ -176,7 +158,7 @@ Page({
         duration: 1500
 
       })
-    } else if (e.detail.value.money > max) {
+    } else if (e.detail.value.money > that.data.max) {
 
       wx.showToast({
 
@@ -239,7 +221,31 @@ Page({
       })
     }
   },
-  onLoad: function(options) {
+
+  //获取余额
+  onLoad: function(e) {
+    var that = this
+    var max
+    wx.request({
+      url: 'https://go.zhangzw.top/brand2/web/user/getuser',
+      method: 'POST',
+      data: {
+        userid: wx.getStorageSync("userid"),
+        key1: wx.getStorageSync('key1'),
+        key1: wx.getStorageSync('realKey'),
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      success: function (e) {
+        console.log(e)
+        that.setData({
+          max: e.data.gold,
+        })
+        console.log(that.data.max)
+      }
+
+    })
 
   },
 
