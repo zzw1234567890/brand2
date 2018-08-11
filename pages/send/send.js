@@ -1,7 +1,6 @@
 // pages/send/send.js
 
 var searchValue = ''
-var max = 20;
 
 Page({
 
@@ -11,47 +10,17 @@ Page({
    */
   data: {
     inputclass: 'num',
-    items: [{
-        value: '美国'
-      },
-      {
-        value: '中国'
-      },
-      {
-        value: '巴西'
-      },
-      {
-        value: '日本'
-      },
-      {
-        value: '英国'
-      },
-      {
-        value: '法国'
-      },
-      {
-        value: '巴西'
-      },
-      {
-        value: '日本'
-      },
-      {
-        value: '英国'
-      },
-      {
-        value: '法国'
-      },
-    ],
-
+    tip: true,
     searchValue: '',
     view: true,
     none: true,
     brand: [],
     type_id: 0,
-    description:'',
+    description: '',
     money: '',
-    date:'1',
+    date: '1',
     top: false,
+    max:'',
   },
 
 
@@ -89,8 +58,19 @@ Page({
     var value = e.detail.value;
     this.setData({
       searchValue: value,
+      tip: false,
     });
-    // console.log(e.detail.value)
+    console.log(value)
+    if (value == "") {
+      this.setData({
+        tip: true,
+        view: true,
+      });
+    } else {
+      this.setData({
+        tip: false,
+      });
+    }
   },
 
   //输入后显示品牌
@@ -109,16 +89,23 @@ Page({
       },
       success: function(e) {
         // console.log(e.data)
+        wx.showToast({
+          title: '正在查询中',
+          icon: 'loading',
+          duration: 500,
+        })
         if (that.data.searchValue == 0 || e.data.type_id == '') {
           that.setData({
             none: true,
             view: false,
+            tip: true,
           });
         } else {
           console.log(e)
           that.setData({
             view: true,
             none: false,
+            tip: true,
             items: e.data.brands,
             type_id: e.data.type_id
           });
@@ -126,13 +113,6 @@ Page({
       },
       complete: function(e) {
 
-        wx.showToast({
-
-          title: '正在查询中',
-          icon: 'loading',
-          duration: 500,
-
-        })
       },
       fail: function(e) {
         wx.showToast({
@@ -145,12 +125,34 @@ Page({
 
   // 赏金数额判断
   inputmoney: function(e) {
-    if (e.detail.value > max) {
-      this.setData({
+    var that = this
+    var max 
+    wx.request({
+      url: 'https://go.zhangzw.top/brand2/web/user/getuser',
+      method: 'POST',
+      data: {
+        userid: wx.getStorageSync("userid"),
+        key1: wx.getStorageSync('key1'),
+        key1: wx.getStorageSync('realKey'),
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      success: function(e) {
+        // console.log(e)
+        that.setData({
+          max: e.data.gold,
+        })
+        // console.log(that.data.max)
+      }
+
+    })
+    if (e.detail.value > that.data.max) {
+      that.setData({
         inputclass: 'error'
       });
     } else {
-      this.setData({
+      that.setData({
         inputclass: 'num'
       });
     }
@@ -220,18 +222,18 @@ Page({
             duration: 1500,
           })
 
-            that.setData({
-            searchValue:'',
-              description:'',
-              money:'',
-              date: '1',
-              top:false,
-              none: true,
-            });
+          that.setData({
+            searchValue: '',
+            description: '',
+            money: '',
+            date: '1',
+            top: false,
+            none: true,
+          });
           wx.switchTab({
             url: '../index/index'
           })
-          return;        
+          return;
         },
         fail: function(res) {}
       })

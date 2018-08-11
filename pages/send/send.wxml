@@ -2,7 +2,7 @@
 <view class="all">
 
   <view class="bg">
-  <view class="zi">让朋友圈解决您的问题</view>
+    <view class="zi">让朋友圈来解决您的问题</view>
   </view>
 
   <view class="form">
@@ -16,7 +16,11 @@
       </view>
 
       <view class="wu" hidden='{{view}}'>
-        <text>没有找到您想买的物品...</text>
+        <text>没有找到您想买的物品哦</text>
+      </view>
+
+       <view class="wu" hidden='{{tip}}'>
+        <text>请点击确定查询品牌哦</text>
       </view>
 
       <view class="request">
@@ -26,7 +30,7 @@
 
       <checkbox-group class="checkbox-group" bindchange="checkboxChange" hidden='{{none}}'>
         <text>选择品牌</text>
-        <label  class="checkbox" wx:for="{{items}}" wx:key="*this">
+        <label class="checkbox" wx:for="{{items}}" wx:key="*this">
           <checkbox value="{{item.id}}" checked="{{item.checked}}" color="#FF521A" />{{item.name}}
         </label>
       </checkbox-group>
@@ -41,12 +45,12 @@
 
       <view class='date '>
         <text>问题有效期(小时)</text>
-        <slider value='{{date}}'name="date" max="72" step="1" min="1" show-value="true" bindchange="listenerSlider" activeColor="#FF521A" />
+        <slider value='{{date}}' name="date" max="72" step="1" min="1" show-value="true" bindchange="listenerSlider" activeColor="#FF521A" />
       </view>
 
       <view class="switch">
         <text>是否公开</text>
-        <switch checked='{{top}}'name="top" class="switch1" color="#FF521A" bindchange="switch1Change" />
+        <switch checked='{{top}}' name="top" class="switch1" color="#FF521A" bindchange="switch1Change" />
       </view>
 
       <button class="submit" form-type='submit'> 发布问题 </button>
