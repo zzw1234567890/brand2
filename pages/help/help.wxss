@@ -1,0 +1,37 @@
+.bg{
+  height: 100vh;
+  background: #E2E2E2;
+}
+
+.common_container {
+  /* height: 100rpx; */
+  width: 100%;
+  overflow: hidden;
+  transition: all 1s;
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  -o-transition: all 1s;
+  background: white;
+  border-bottom: 20rpx solid #E2E2E2;
+}
+
+.common_question {
+  line-height: 100rpx;
+  padding-left: 30rpx;
+}
+
+.common_answer{
+  display: block;
+  line-height: 60rpx;
+  padding: 0 30rpx;
+}
+
+.question1{
+    /* background: red; */
+    background: white;
+}
+
+.answer1{
+    /* background: red; */
+    background: white;
+}

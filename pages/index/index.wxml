@@ -74,7 +74,7 @@
       </view>
     </view>
     <view class='contain'>
-      <view class='box' wx:for="{{finish}}" wx:for-index="index" wx:key='*this' data-index="{{index}}" bindtap='detail2'>
+      <view class='box' wx:for="{{finish}}" wx:for-index="index" wx:key='*this' data-index="{{index}}" data-des='{{item}}' bindtap='pay'>
         <view class='top'>
           <view class='header'>
             <image class='hIcon' src='{{item.pic}}'></image>
@@ -118,4 +118,25 @@
       </view>
     </view>
   </view>
+  <view class='jump' hidden='{{jump}}'>
+    <view class='jumpKuang'>
+      <view class="jumptop">
+        <view class='show'>
+          <text class='pay'>您需支付{{paygold}}个金币</text>
+        </view>
+      </view>
+      <view class="jumpbottom">
+        <view class='jumpdel' bindtap='del'>
+          <view class='del del2'>取消
+          </view>
+        </view>
+        <view class='jumpsure' bindtap='detail2'>
+          <view class='del'>确定
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='mask' hidden='{{mask}}'>
 </view>

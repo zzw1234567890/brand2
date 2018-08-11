@@ -101,6 +101,8 @@ Page({
       method: 'POST',
       data: {
         type: that.data.searchValue,
+        key1: wx.getStorageSync('key1'),
+        key1: wx.getStorageSync('realKey'),
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -202,6 +204,8 @@ Page({
           gold: e.detail.value.money,
           show: top,
           options: that.data.brand,
+          key1: wx.getStorageSync('key1'),
+          key1: wx.getStorageSync('realKey'),
         },
         method: 'POST',
         header: { // 设置请求的 header  

@@ -1,15 +1,20 @@
 {
   "pages": [
+    "pages/personal/personal",
     "pages/index/index",
     "pages/logs/logs",
     "pages/main/main",
-    "pages/my/my",
     "pages/detail/detail",
     "pages/search/search",
     "pages/rule/rule",
     "pages/rank/rank",
     "pages/searcher/searcher",
-    "pages/send/send"
+    "pages/send/send",
+    "pages/goldcoin/goldcoin",
+    "pages/attend/attend",
+    "pages/release/release",
+    "pages/purchase/purchase",
+    "pages/help/help"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -34,7 +39,7 @@
         "selectedIconPath": "img/add2.png"
       },
       {
-        "pagePath": "pages/my/my",
+        "pagePath": "pages/personal/personal",
         "text": "我",
         "iconPath": "img/my.png",
         "selectedIconPath": "img/my2.png"

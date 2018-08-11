@@ -67,6 +67,12 @@
 					"name": "send",
 					"pathName": "pages/send/send",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": ""
 				}
 			]
 		}
