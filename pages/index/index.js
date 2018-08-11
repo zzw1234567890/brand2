@@ -9,10 +9,13 @@ Page({
   data: {
     sview: false,
     sview2: true,
+    jump: true,
+    mask: true,
     hover: "navTitle",
     hovers: "navTitle",
-    page: 1,
-    end:0,
+    end: 0,
+    paygold: '',
+    id: '',
     brand: [
       {
         "pic": "../../img/header.jpg",
@@ -157,13 +160,18 @@ Page({
       method: 'POST',
       data: {
         end: 0,
-        page: that.data.page
+        // page: that.data.page,
+        user_id: wx.getStorageSync('userid'),
+        last: 0,
+        key1: wx.getStorageSync('key1'),
+        key1: wx.getStorageSync('realKey'),
+        // _csrf: wx.getStorageSync('realKey'),
       },
       header: {
         "content-type": "application/x-www-form-urlencoded"
       },
       success: function (e) {
-        // console.log(e.data[0].id);
+        // console.log(e.data);
         that.setData({
           brand: e.data,
           hover: "hover",
@@ -176,7 +184,11 @@ Page({
       method: 'POST',
       data: {
         end: 1,
-        page: 1
+        user_id: wx.getStorageSync('userid'),
+        key1: wx.getStorageSync('key1'),
+        key1: wx.getStorageSync('realKey'),
+        // page: 1,
+        //  _csrf: wx.getStorageSync('realKey')
       },
       header: {
         "content-type": "application/x-www-form-urlencoded"
@@ -185,6 +197,7 @@ Page({
         // console.log(e.data);
         that.setData({
           finish: e.data,
+          // paygold:e.data.gold/2,
         })
       }
     })
@@ -194,7 +207,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-   
+
   },
 
   /**
@@ -217,15 +230,18 @@ Page({
   onPullDownRefresh() {
     that = this;
     console.log(that.data.end);
-    if(that.data.end == 0){
+    if (that.data.end == 0) {
       wx.showNavigationBarLoading() //在标题栏中显示加载
-      that.data.page = 1;
+      // that.data.page = 1;
       wx.request({
         url: 'https://go.zhangzw.top/brand2/web/need/get',
         method: 'POST',
         data: {
           end: that.data.end,
-          page: that.data.page,
+          key1: wx.getStorageSync('key1'),
+          key1: wx.getStorageSync('realKey'),
+          // page: that.data.page,
+          // _csrf: wx.getStorageSync('realKey')
         },
         header: {
           "content-type": "application/x-www-form-urlencoded"
@@ -249,13 +265,16 @@ Page({
           // wx.stopPullDownRefresh() //停止下拉刷新
         }
       })
-    }else{
+    } else {
       wx.request({
         url: 'https://go.zhangzw.top/brand2/web/need/get',
         method: 'POST',
         data: {
           end: 1,
-          page: that.data.page,
+          key1: wx.getStorageSync('key1'),
+          key1: wx.getStorageSync('realKey'),
+          // page: that.data.page,
+          // _csrf: wx.getStorageSync('realKey')
         },
         header: {
           "content-type": "application/x-www-form-urlencoded"
@@ -281,9 +300,9 @@ Page({
       })
     }
     // console.log('--------下拉刷新-------')
-    
+
     // ////
-    
+
   },
 
   /**
@@ -292,24 +311,25 @@ Page({
   onReachBottom: function () {
     that = this;
     // console.log('--------上拉加载-------')
-    if(that.data.end == 0){
+    if (that.data.end == 0) {
       wx.showNavigationBarLoading()
-      that.data.page += 1;
+      // that.data.page += 1;
       wx.request({
         url: 'https://go.zhangzw.top/brand2/web/need/get',
         method: 'POST',
         data: {
           end: 0,
-          page: that.data.page,
-          last: that.data.brand[that.data.brand.length - 1].id
+          key1: wx.getStorageSync('key1'),
+          key1: wx.getStorageSync('realKey'),
+          // page: that.data.page,
+          last: that.data.brand[that.data.brand.length - 1].id,
+          // _csrf: wx.getStorageSync('realKey')
         },
         header: {
           "content-type": "application/x-www-form-urlencoded"
         },
         success: function (e) {
           that.data.brand = that.data.brand.concat(e.data);
-          // console.log(that.data.brand);
-          // console.log(e.data);
           that.setData({
             brand: that.data.brand,
             hover: "hover",
@@ -337,14 +357,17 @@ Page({
           // wx.stopPullDownRefresh() //停止下拉刷新
         }
       })
-    }else{
+    } else {
       wx.request({
         url: 'https://go.zhangzw.top/brand2/web/need/get',
         method: 'POST',
         data: {
           end: 1,
-          page: that.data.page,
-          last: that.data.finish[that.data.finish.length - 1].id
+          key1: wx.getStorageSync('key1'),
+          key1: wx.getStorageSync('realKey'),
+          // page: that.data.page,
+          last: that.data.finish[that.data.finish.length - 1].id,
+          // _csrf: wx.getStorageSync('realKey')
         },
         header: {
           "content-type": "application/x-www-form-urlencoded"
@@ -381,9 +404,9 @@ Page({
         }
       })
     }
-    
+
     //
-    
+
   },
 
   /**
@@ -394,7 +417,7 @@ Page({
   },
   touch: function (e) {
     that = this;
-    that.setData({end:0});
+    that.setData({ end: 0 });
     that.setData({
       sview: false,
       sview2: true,
@@ -405,7 +428,7 @@ Page({
   },
   touch2: function (e) {
     that = this;
-    that.setData({end:1});
+    that.setData({ end: 1 });
     that.setData({
       sview: true,
       sview2: false,
@@ -419,11 +442,82 @@ Page({
       url: '../detail/detail?id=' + that.data.brand[index].id,
     })
   },
+  pay: function (e) {
+    that = this;
+    // console.log(e.currentTarget.dataset.des.id)
+    that.setData({
+      paygold: e.currentTarget.dataset.des.gold / 2,
+      id: e.currentTarget.dataset.des.id,
+    })
+    if (e.currentTarget.dataset.des.look == 0) {
+      wx.request({
+        url: 'https://go.zhangzw.top/brand2/web/user/getuser',
+        method: 'POST',
+        data: {
+          userid: wx.getStorageSync('userid'),
+        },
+        header: {
+          "content-type": "application/x-www-form-urlencoded"
+        },
+        success: function (e) {
+          // console.log(e.data)
+          if (that.data.paygold <= e.data.gold) {
+            that.setData({
+              jump: false,
+              mask: false,
+            })
+          }
+          else {
+            wx.showModal({
+              title: '提示',
+              content: '您的余额不足',
+            })
+          }
+        }
+      })
+    // }
+    } else {
+      wx.navigateTo({
+        url: '../detail/detail?id=' + that.data.id,
+      })
+    }
+
+  },
   detail2: function (e) {
-    index2 = e.currentTarget.dataset.index;
-    // console.log(e)
-    wx.navigateTo({
-      url: '../detail/detail?id=' + that.data.finish[index2].id,
+    wx.request({
+      url: 'https://go.zhangzw.top/brand2/web/user/buyneed',
+      method: 'POST',
+      data: {
+        userid: wx.getStorageSync('userid'),
+        needid: that.data.id,
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      success: function (e) {
+        console.log(e);
+        wx.showLoading({
+          title: '支付中...',
+        })
+        setTimeout(function () {
+          wx.hideLoading()
+          wx.navigateTo({
+            url: '../detail/detail?id=' + that.data.id,
+          })
+          that.setData({
+            jump: true,
+            mask: true,
+          })
+        }, 2000)
+      }
+    })
+
+  },
+  del: function () {
+    that = this;
+    that.setData({
+      jump: true,
+      mask: true,
     })
   },
   search: function () {
@@ -436,4 +530,5 @@ Page({
       url: '../searcher/searcher',
     })
   },
+
 })

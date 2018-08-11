@@ -11,6 +11,8 @@ Page({
   data: {
     sview2: true,
     sview3: false,
+    hui:false,
+    tou:false,
     zhuangtai:'zhuangtai',
     mask: true,
     showview: true,
@@ -30,6 +32,7 @@ Page({
     questions: '',
     username: '',
     is_vote: 0,
+    id:'',
     vote: [
       {
         "name": "CHANEL 香奈儿",
@@ -108,20 +111,20 @@ Page({
    */
   onLoad: function (options) {
     that = this;
-    // console.log(options)
+    that.setData({ id: options.id})
     wx.request({
       url: 'https://go.zhangzw.top/brand2/web/need/details',
       method: 'POST',
       data: {
         need_id: options.id,
-        userid: wx.getStorageSync('userid'),
+        user_id: wx.getStorageSync('userid'),
       },
       header: {
         "content-type": "application/x-www-form-urlencoded"
       },
       success: function (e) {
-        console.log(e.data)
-        if (!e.data.h || !e.data.i || !e.data.s) {
+        // console.log(e.data)
+        if (!e.data.h && !e.data.i && !e.data.s) {
           that.setData({
             gold: e.data.gold,
             num: e.data.num,
@@ -138,6 +141,10 @@ Page({
             ing: true,
             done: false,
             zhuangtai: 'zhuangtai2',
+            sview2:false,
+            sview3:true,
+            hui:true,
+            tou:false,
           })
         } else {
           // console.log('sss')
@@ -158,6 +165,10 @@ Page({
             Brands: e.data.options,
             is_vote: e.data.is_vote,
             zhuangtai: 'zhuangtai',
+            sview3: false,
+            sview2: true,
+            hui: false,
+            tou: true,
           })
           countDown_time = that.data.hhh + ':' + that.data.mmm + ':' + that.data.sss;
           that.count_down(countDown_time)
@@ -211,7 +222,37 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function (e) {
+    that=this;
+    if (that.data.now=='已结束'){
+      if (e.from != "menu") {
+        return {
+          title: "快来帮帮我~",
+          // imageUrl: '../../img/logo.jpg',
+          path: "/pages/detail/detail?id=" + that.data.id,
+        }
+      } else {
+        return {
+          title: "品牌 Top",
+          // imageUrl: '../../img/logo.jpg',
+          path: "/pages/index/index",
+        }
+      }
+    }else{
+      if (e.from != "menu") {
+        return {
+          title: "快来帮帮我~",
+          // imageUrl: '../../img/logo.jpg',
+          path: "/pages/detail/detail?id=" + that.data.id,
+        }
+      } else {
+        return {
+          title: "品牌 Top",
+          // imageUrl: '../../img/logo.jpg',
+          path: "/pages/index/index",
+        }
+      }
+    }
 
   },
   // 倒计时
@@ -266,19 +307,17 @@ Page({
     })
   },
   //查看回答
-  answer: function () {
-    that = this; 
-      that.setData({
-        sview2: false,
-        sview3: true,
-      })
-  },
-  tuopiao:function(){
-    that = this;
-    that.setData({
-      sview3: false,
-      sview2: true,
+  answer: function () { 
+    wx.showModal({
+      title: '活动进行中...',
+      content: '现在还不能查看~',
     })
+  },
+  tuopiao:function(){ 
+    wx.showModal({
+      title: '活动已结束',
+      content: '现在不能投票啦~~',
+    }) 
   },
   searchValueInput: function (e) {
     var value = e.detail.value;
@@ -381,7 +420,7 @@ Page({
       content: "您确定要给它投票吗？",
       showCancel: true,
       confirmText: collect ? "取消投票" : "投票",
-      confirmColor: "#166fb4",
+      confirmColor: "#FF521A",
       success: function (res) {
         //确定投票
         if (res.confirm) {
@@ -390,14 +429,17 @@ Page({
             method: 'POST',
             data: {
               user_id: wx.getStorageSync("userid"),
-              option_id: that.data.vote[index].id
+              option_id: that.data.vote[index].id,
+              need_id:that.data.id,
             },
             header: {
               "content-type": "application/x-www-form-urlencoded"
             },
             success: function (e) {
-              console.log(e.data)
-              that.setData({ is_vote: e.data })
+              // console.log(e.data)
+              if(e.data > 0){
+                that.setData({ is_vote: e.data })
+              }
             }
           })
         }
