@@ -1,18 +1,35 @@
 // pages/goldcoin/goldcoin.js
+var that;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    gold:0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    that = this;
+    wx.request({
+      url: 'https://go.zhangzw.top/brand2/web/user/getuser',
+      method: 'POST',
+      data: {
+        userid: wx.getStorageSync('userid'),
+        key1: wx.getStorageSync('key1'),
+        key1: wx.getStorageSync('realKey'),
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      success: function (e) {
+        that.setData({ gold: e.data.gold})
+      //  console.log(e.data)
+      }
+    })
   },
 
   /**

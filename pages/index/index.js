@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    huoqu: false,
     sview: false,
     sview2: true,
     jump: true,
@@ -171,7 +172,6 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success: function (e) {
-        // console.log(e.data);
         that.setData({
           brand: e.data,
           hover: "hover",
@@ -207,7 +207,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    that=this;
+    if (wx.getStorageSync("avatar")) {
+      that.setData({ huoqu: true })
+    }
   },
 
   /**
@@ -477,7 +480,7 @@ Page({
           }
         }
       })
-    // }
+      // }
     } else {
       wx.navigateTo({
         url: '../detail/detail?id=' + that.data.id,
@@ -534,5 +537,20 @@ Page({
       url: '../searcher/searcher',
     })
   },
-
+  huoqu: function (e) {
+    that = this; 
+      wx.showModal({
+        title: '提示',
+        content: '请前往个人中心去授权~',
+        confirmColor: "#FF521A",
+        success: function (res) {
+          //确定
+          if (res.confirm) {
+            wx.switchTab({
+              url: '../personal/personal',
+            })
+          }
+        }
+      })
+    }
 })

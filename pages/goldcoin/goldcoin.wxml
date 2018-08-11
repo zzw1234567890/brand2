@@ -1,7 +1,7 @@
 <view class='bg'>
 
   <view class='header'>
-    金币余额：0
+    金币余额：{{gold}}
   </view>
 
   <view class='body_1'>

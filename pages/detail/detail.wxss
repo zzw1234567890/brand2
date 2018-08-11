@@ -127,7 +127,7 @@
   width: auto;
   float: left;
   height: 80rpx;
-  margin-left: 80rpx;
+  margin-left: 70rpx;
   background: none;
 }
 .ans::after{
@@ -296,8 +296,24 @@
   font-size: 32rpx;
   color: #ff521a;
   text-align: center;
- 
-  /* background: yellow; */
+}
+.huibnames{
+  width: 100%;
+  height: 60rpx;
+   /* background: palegreen;  */
+  /* margin-top: 10px; */
+  float: left;
+}
+.bnames{
+  width:100%;
+  height: 60rpx;
+  /* margin-top: 4px; */
+  line-height: 60rpx;
+  display: block;
+  font-size: 32rpx;
+  color: #ff521a;
+  text-align: left;
+  /* background: pink; */
 }
 
 .mTitle2 {
@@ -345,6 +361,9 @@
   text-align: center;
    /* background: yellow;  */
 }
+.dianji{
+  z-index: 222;
+}
 .dd{
   width: 540rpx;
   height: 60rpx;
@@ -364,16 +383,39 @@ float: left;
   float: left;
 }
 .two{
-  width: 30%;
+  width: 25%;
   height: 80rpx;
     /* background: gray;   */
   float: left;  
 }
+.two2{
+  width: 34%
+}
+.two3{
+  width: 30%;
+  height: 80rpx;
+  float: right;
+  z-index: 888;
+  /* background: pink; */
+}
 .b-pic{
-  width: 50rpx;
-  height: 50rpx;
+  width: 40rpx;
+  height: 40rpx;
   float: left;
   margin: 10rpx;
+}
+.iconnum{
+  font-size: 14px;
+  color: #444;
+  width: auto;
+  height: 60rpx;
+  display: block;
+  line-height: 60rpx;
+  /* background: pink; */
+  float: left;
+}
+.iconnum2{
+  width: 120rpx;
 }
 
 .Tex{

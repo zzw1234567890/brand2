@@ -140,3 +140,4 @@
 </view>
 <view class='mask' hidden='{{mask}}'>
 </view>
+<button class='huoqu' hidden='{{huoqu}}' bindtap='huoqu'></button>

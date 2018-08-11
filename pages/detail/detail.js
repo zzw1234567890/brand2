@@ -4,16 +4,23 @@ var countDown_time;
 var index;
 var collect;
 var arrSrc = [];
+var printPrice;
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    user_id:'',
+    use_option:'',
+    sename:'采纳',
     sview2: true,
     sview3: false,
-    hui:false,
-    tou:false,
-    zhuangtai:'zhuangtai',
+    toupai: false,
+    sview:true,
+    // cai: true,
+    hui: false,
+    tou: false,
+    zhuangtai: 'zhuangtai',
     mask: true,
     showview: true,
     ing: false,
@@ -32,7 +39,7 @@ Page({
     questions: '',
     username: '',
     is_vote: 0,
-    id:'',
+    id: '',
     vote: [
       {
         "name": "CHANEL 香奈儿",
@@ -111,7 +118,7 @@ Page({
    */
   onLoad: function (options) {
     that = this;
-    that.setData({ id: options.id})
+    that.setData({ id: options.id })
     wx.request({
       url: 'https://go.zhangzw.top/brand2/web/need/details',
       method: 'POST',
@@ -143,10 +150,14 @@ Page({
             ing: true,
             done: false,
             zhuangtai: 'zhuangtai2',
-            sview2:false,
-            sview3:true,
-            hui:true,
-            tou:false,
+            sview2: false,
+            sview3: true,
+            hui: true,
+            tou: false,
+            toupai: false,
+            // cai: false,
+            user_id: e.data.user_id,
+            use_option: e.data.use_option,
           })
         } else {
           // console.log('sss')
@@ -171,6 +182,10 @@ Page({
             sview2: true,
             hui: false,
             tou: true,
+            toupai: false,
+            // cai: true,
+            user_id: e.data.user_id,
+            use_option: e.data.use_option,
           })
           countDown_time = that.data.hhh + ':' + that.data.mmm + ':' + that.data.sss;
           that.count_down(countDown_time)
@@ -225,8 +240,8 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (e) {
-    that=this;
-    if (that.data.now=='已结束'){
+    that = this;
+    if (that.data.now == '已结束') {
       if (e.from != "menu") {
         return {
           title: "快来帮帮我~",
@@ -240,7 +255,7 @@ Page({
           path: "/pages/index/index",
         }
       }
-    }else{
+    } else {
       if (e.from != "menu") {
         return {
           title: "快来帮帮我~",
@@ -309,17 +324,28 @@ Page({
     })
   },
   //查看回答
-  answer: function () { 
-    wx.showModal({
-      title: '活动进行中...',
-      content: '现在还不能查看~',
-    })
+  answer: function () {
+    that = this;
+    if (that.data.toupai == false) {
+      wx.showModal({
+        title: '活动进行中...',
+        content: '现在还不能查看~',
+        confirmColor: "#FF521A"
+      })
+    }
+    else {
+      that.setData({
+        sview2: false,
+        sview:true,
+      })
+    }
   },
-  tuopiao:function(){ 
+  tuopiao: function () {
     wx.showModal({
       title: '活动已结束',
       content: '现在不能投票啦~~',
-    }) 
+      confirmColor: "#FF521A"
+    })
   },
   searchValueInput: function (e) {
     var value = e.detail.value;
@@ -335,6 +361,7 @@ Page({
       wx.showModal({
         title: '提示',
         content: '您输入的内容为空',
+        confirmColor: "#FF521A"
       })
     } else {
       wx.request({
@@ -351,7 +378,15 @@ Page({
           "content-type": "application/x-www-form-urlencoded"
         },
         success: function (e) {
-          // console.log(e.data);
+          wx.showToast({
+            title: '发布成功',
+          })
+          setTimeout(function () {
+            that.setData({
+              [printPrice]: false,
+              searchValue: '',
+            })
+          }, 2000)
         }
       })
     }
@@ -386,7 +421,7 @@ Page({
     var vote = this.data.vote;
     for (var i = 0; i < vote.length; i++) {
       if (e.currentTarget.dataset.changeid == vote[i].id) {
-        var printPrice = "vote[" + i + "].shows";
+        printPrice = "vote[" + i + "].shows";
         if (this.data.vote[i].shows) {
           this.setData({
             [printPrice]: false
@@ -407,14 +442,23 @@ Page({
   toCollect: function (e) {
     that = this;
     index = e.currentTarget.dataset.index;
-    console.log(that.data.is_vote)
-    if (that.data.is_vote == 1) {
-      collect = true
-    } else {
-      collect = false
-      that.showModal();
+    // console.log(that.data.user_id)
+    if (that.data.user_id == wx.getStorageSync("userid")){
+      wx.showModal({
+        title: '提示',
+        content: "您是题主，不能投票哦~",
+        confirmColor: "#FF521A"
+      })
     }
-    return;
+    else{
+      if (that.data.is_vote == 1) {
+        collect = true
+      } else {
+        collect = false
+        that.showModal();
+      }
+      return;
+    }
   },
   showModal: function (e) {
     var that = this;
@@ -434,7 +478,7 @@ Page({
             data: {
               user_id: wx.getStorageSync("userid"),
               option_id: that.data.vote[index].id,
-              need_id:that.data.id,
+              need_id: that.data.id,
               key1: wx.getStorageSync('key1'),
               key1: wx.getStorageSync('realKey'),
             },
@@ -443,7 +487,7 @@ Page({
             },
             success: function (e) {
               // console.log(e.data)
-              if(e.data > 0){
+              if (e.data > 0) {
                 that.setData({ is_vote: e.data })
               }
             }
@@ -468,4 +512,35 @@ Page({
     });
     // console.log(Pic[index].pic);
   },
+  CaiNa:function(e){
+    var Index = e.currentTarget.dataset.index;
+    that=this;
+    if (that.data.user_id == wx.getStorageSync("userid")){
+      wx.request({
+        url: 'https://go.zhangzw.top/brand2/web/option/use',
+        method: 'POST',
+        data: {
+          option_id: that.data.vote[Index].id,
+          key1: wx.getStorageSync('key1'),
+          key1: wx.getStorageSync('realKey'),
+        },
+        header: {
+          "content-type": "application/x-www-form-urlencoded"
+        },
+        success: function (e) {
+          // console.log('l')
+          that.setData({
+            use_option:e.data.option_id
+          })
+        }
+      })
+    }
+    else{
+      wx.showModal({
+        title: '提示',
+        content: '您不是题主，不能采纳~',
+        confirmColor: "#FF521A"
+      })
+    }
+  }
 })

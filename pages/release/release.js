@@ -124,7 +124,10 @@ Page({
     })
   },
   getdetails: function(e) {
-    console.log(e.currentTarget.dataset.id);
+    // console.log(e.currentTarget.dataset.id);
+    wx.navigateTo({
+      url: '../detail/detail?id=' + e.currentTarget.dataset.id,
+    })
   },
 
   /**
