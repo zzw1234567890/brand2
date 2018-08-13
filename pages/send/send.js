@@ -87,7 +87,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function(e) {
-        console.log(e.data)
+        // console.log(e.data)
         wx.showToast({
           title: '正在查询中',
           icon: 'loading',
@@ -100,7 +100,7 @@ Page({
             tip: '没有找到您想买的物品哦',
           });
         } else {
-          console.log(e)
+          // console.log(e)
           that.setData({
             view: true,
             none: false,
