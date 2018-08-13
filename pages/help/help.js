@@ -183,6 +183,34 @@ Page({
 
   },
 
+  unfold7: function (e) {
+    var that = this;
+    if (that.data.height7 == 100) {
+      this.setData({
+        height1: 100,
+        height2: 100,
+        height3: 100,
+        height4: 100,
+        height5: 100,
+        height6: 100,
+        height7: 250,
+        height8: 100,
+      });
+    } else {
+      this.setData({
+        height1: 100,
+        height2: 100,
+        height3: 100,
+        height4: 100,
+        height5: 100,
+        height6: 100,
+        height7: 100,
+        height8: 100,
+      })
+    }
+
+  },
+
 
   /**
    * 生命周期函数--监听页面加载

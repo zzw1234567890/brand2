@@ -54,5 +54,14 @@
     </view>
   </view>
 
+  <view class='container2 common_container' style='height:{{height7}}rpx;' bindtap='unfold7'>
+    <view class='question2 common_question'>
+      7、个人中心里面如何删除已有内容?
+    </view>
+    <view class='answer2 common_answer'>
+      只需长按即可选择删除了哦，不过要注意的是，只要删除便会永远消失。
+    </view>
+  </view>
+
 
 </view>
