@@ -62,12 +62,12 @@ bindTouchEnd: function (e) {
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
       success: function(res) {
-        // console.log(res.data);
+        console.log(res.data);
         var data1 = [];
         for (var i = 0; i < res.data.length; i++) {
           data1.push({
             "topic": res.data[i].questions,
-            "underway": res.data[i].end,
+            "underway": parseInt(res.data[i].end),
             "keyword1": res.data[i].types,
             "releaseDate": res.data[i].time,
             'browse': res.data[i].view,

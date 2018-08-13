@@ -356,40 +356,49 @@ Page({
 
   submit: function (e) {
     that = this;
-    // console.log(that.data.searchValue)
-    if (that.data.searchValue == '') {
+    if (that.data.user_id == wx.getStorageSync("userid")){
       wx.showModal({
         title: '提示',
-        content: '您输入的内容为空',
+        content: "您是题主，不能评论哦~",
         confirmColor: "#FF521A"
       })
-    } else {
-      wx.request({
-        url: 'https://go.zhangzw.top/brand2/web/user/reply',
-        method: 'POST',
-        data: {
-          userid: wx.getStorageSync('userid'),
-          optionid: e.currentTarget.dataset.id,
-          content: that.data.searchValue,
-          key1: wx.getStorageSync('key1'),
-          key1: wx.getStorageSync('realKey'),
-        },
-        header: {
-          "content-type": "application/x-www-form-urlencoded"
-        },
-        success: function (e) {
-          wx.showToast({
-            title: '发布成功',
-          })
-          setTimeout(function () {
-            that.setData({
-              [printPrice]: false,
-              searchValue: '',
+    }else{
+      // console.log(that.data.searchValue)
+      if (that.data.searchValue == '') {
+        wx.showModal({
+          title: '提示',
+          content: '您输入的内容为空',
+          confirmColor: "#FF521A"
+        })
+      } else {
+        wx.request({
+          url: 'https://go.zhangzw.top/brand2/web/user/reply',
+          method: 'POST',
+          data: {
+            userid: wx.getStorageSync('userid'),
+            optionid: e.currentTarget.dataset.id,
+            content: that.data.searchValue,
+            key1: wx.getStorageSync('key1'),
+            key1: wx.getStorageSync('realKey'),
+          },
+          header: {
+            "content-type": "application/x-www-form-urlencoded"
+          },
+          success: function (e) {
+            wx.showToast({
+              title: '发布成功',
             })
-          }, 2000)
-        }
-      })
+            setTimeout(function () {
+              that.setData({
+                [printPrice]: false,
+                searchValue: '',
+              })
+            }, 2000)
+          }
+        })
+      }
     }
+  
   },
   reset: function (e) {
     that = this;
