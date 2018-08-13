@@ -31,7 +31,8 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success: function (e) {
-        that.setData({ balance: e.data.balance})
+        console.log(e)
+        that.setData({ balance: e.data.gold})
       }
     })
   },
