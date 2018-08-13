@@ -1,13 +1,8 @@
 <view class='bg'>
 
   <view class='header'>
-<<<<<<< HEAD
-    金币余额：{{balance}}
-=======
 
     金币余额：{{balance}}
-
->>>>>>> 5202b2ed534df4901657c417e002ecda77180401
   </view>
 
   <view class='body_1'>

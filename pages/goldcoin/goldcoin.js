@@ -6,12 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-<<<<<<< HEAD
-    balance: '0'
-=======
-
     balance:'0'
->>>>>>> 5202b2ed534df4901657c417e002ecda77180401
   },
   record: function () {
     wx.navigateTo({
