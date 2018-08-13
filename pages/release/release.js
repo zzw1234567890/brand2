@@ -111,7 +111,7 @@ bindTouchEnd: function (e) {
             },
             success: function(res) {
               console.log(res.data)
-              if(res.data == 1){
+              if (res.data == 1) {
                 myRelease.splice(index, 1)
                 console.log(myRelease);
                 that.setData({
