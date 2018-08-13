@@ -31,13 +31,8 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success: function (e) {
-<<<<<<< HEAD
         that.setData({ balance: e.data.balance})
-      //  console.log(e.data)
-=======
         that.setData({ gold: e.data.gold })
-        //  console.log(e.data)
->>>>>>> 097180a437ede08573fb37bf5bed7a6ad6704e81
       }
     })
   },

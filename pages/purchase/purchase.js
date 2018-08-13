@@ -20,6 +20,12 @@ Page({
     ],
     statue: true
   },
+  bindTouchStart: function (e) {
+    this.startTime = e.timeStamp;
+  },
+bindTouchEnd: function (e) {
+    this.endTime = e.timeStamp;
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -122,9 +128,12 @@ Page({
     })
   },
   getdetails: function (e) {
-    wx.navigateTo({
-      url: '../detail/detail?id=' + e.currentTarget.dataset.id,
-    })
+    if (this.endTime - this.startTime < 350){
+      wx.navigateTo({
+        url: '../detail/detail?id=' + e.currentTarget.dataset.id,
+      })
+    }
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

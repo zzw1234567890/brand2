@@ -20,7 +20,8 @@
         <view class='myPurchase' bindtap='myPurchase'>我的购买</view>
       </view>
 
-      <view class='bigbox' wx:for="{{myRelease}}" wx:key='key' data-id='{{item.questionid}}' bindtap='getdetails' bindlongtap='delete' hidden='{{statue}}' data-index='{{index}}'>
+      <view class='bigbox' wx:for="{{myRelease}}" wx:key='key' data-id='{{item.questionid}}' bindtap='getdetails' bindlongtap='delete' hidden='{{statue}}' data-index='{{index}}'
+      bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd">
         <view class='box'>
           <view class='question'>
             {{item.topic}}
