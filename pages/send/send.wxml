@@ -16,12 +16,12 @@
       </view>
 
       <view class="wu" hidden='{{view}}'>
-        <text>没有找到您想买的物品哦</text>
+        <text>{{tip}}</text>
       </view>
 
-       <view class="wu" hidden='{{tip}}'>
+       <!-- <view class="wu" hidden='{{tip}}'>
         <text>请点击确定查询品牌哦</text>
-      </view>
+      </view> -->
 
       <view class="request">
         <text>具体要求</text>

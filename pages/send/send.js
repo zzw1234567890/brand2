@@ -10,7 +10,6 @@ Page({
   data: {
     huoqu:false,
     inputclass: 'num',
-    tip: true,
     searchValue: '',
     view: true,
     none: true,
@@ -20,7 +19,7 @@ Page({
     money: '',
     date: '1',
     top: true,
-
+    tip:''
   },
 
 
@@ -58,17 +57,17 @@ Page({
     var value = e.detail.value;
     this.setData({
       searchValue: value,
-      tip: false,
     });
     // console.log(value)
     if (value == "") {
       this.setData({
-        tip: true,
+        tip:'',
         view: true,
       });
     } else {
       this.setData({
-        tip: false,
+        view: false,
+        tip:'请点击确定选择品牌哦'
       });
     }
   },
@@ -94,18 +93,18 @@ Page({
           icon: 'loading',
           duration: 500,
         })
-        if (that.data.searchValue == 0 || e.data.type_id == '') {
+        if (that.data.searchValue == 0 || e.data.result == '0') {
           that.setData({
             none: true,
             view: false,
-            tip: true,
+            tip: '没有找到您想买的物品哦',
           });
         } else {
           console.log(e)
           that.setData({
             view: true,
             none: false,
-            tip: true,
+            tip: '',
             items: e.data.brands,
             type_id: e.data.type_id
           });
