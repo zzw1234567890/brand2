@@ -302,6 +302,7 @@
   height: 30px;
   /* background: gray;  */
   float: right;
+  margin-right: 20rpx;
   text-align: left;
 }
 
