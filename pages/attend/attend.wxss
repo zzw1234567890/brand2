@@ -112,6 +112,8 @@
   margin: 0 auto;
   font-size: 34rpx;
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .body .box .underway {

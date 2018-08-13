@@ -16,6 +16,12 @@ Page({
     }, ],
     statue: true,
   },
+  bindTouchStart: function (e) {
+    this.startTime = e.timeStamp;
+  },
+bindTouchEnd: function (e) {
+    this.endTime = e.timeStamp;
+  },
   myAttend: function () {
     wx.redirectTo({
       url: '../attend/attend',
@@ -124,10 +130,14 @@ Page({
     })
   },
   getdetails: function(e) {
+    if (this.endTime - this.startTime < 350) {
+      wx.navigateTo({
+        url: '../detail/detail?id=' + e.currentTarget.dataset.id,
+      })
+      console.log("点击")
+    }
     // console.log(e.currentTarget.dataset.id);
-    wx.navigateTo({
-      url: '../detail/detail?id=' + e.currentTarget.dataset.id,
-    })
+ 
   },
 
   /**
