@@ -67,7 +67,7 @@
     <view class='Title'>
       <text class='titles'>请选择下列品牌查看回复：</text>
     </view>
-    <view class='main2'>
+    <view class='main'>
       <view class='mainbox2' wx:for="{{Brands}}" wx:for-index="index" wx:key='*this'>
         <view class='mImg2' data-index='{{index}}' bindtap='previewImg'>
           <image class='mIcon2' src='{{item.img}}'></image>
@@ -110,7 +110,7 @@
           <view class='bname' data-changeid="{{item.id}}" bindtap='showHide'>
             <text class='brandname'>{{item.name}}</text>
           </view>
-          <view class='bvote' id="{{index}}" wx:if="{{is_vote==item.id}}" bindtap='toCollect' data-index='{{index}}'>
+          <view class='bvote' id="{{index}}" wx:if="{{is_vote==item.id}}">
             <image class='bpic' src="../../img/icon3.png"></image>
             <text class='text zan'>{{item.vote}}</text>
           </view>

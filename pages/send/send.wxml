@@ -25,7 +25,7 @@
 
       <view class="request">
         <text>具体要求</text>
-        <textarea value='{{description}}' name="description" class=' des ' placeholder='例如：价格2000左右/主要用来通讯 ' bindblur="bindTextAreaBlur" />
+        <textarea maxlength='40' value='{{description}}' name="description" class=' des ' placeholder='例如：价格2000左右/主要用来通讯(40字以内) ' bindblur="bindTextAreaBlur" />
       </view>
 
       <checkbox-group class="checkbox-group" bindchange="checkboxChange" hidden='{{none}}'>
