@@ -39,7 +39,7 @@ Page({
     wx.request({
       url: 'https://go.zhangzw.top/brand2/web/user/getlog', //仅为示例，并非真实的接口地址
       data: {
-        userid: 2
+        userid: wx.getStorageSync('userid'),
       },
       method:"POST",
       header: {

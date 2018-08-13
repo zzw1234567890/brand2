@@ -6,16 +6,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-<<<<<<< HEAD
-    balance:'0'
+    balance: '0'
   },
-  record:function(){
+  record: function () {
     wx.navigateTo({
       url: '../record/record',
     })
-=======
-    gold:0,
->>>>>>> 6e703b8fcd0858b7a1b5e999102579a160026d25
   },
 
   /**
@@ -35,8 +31,8 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success: function (e) {
-        that.setData({ gold: e.data.gold})
-      //  console.log(e.data)
+        that.setData({ gold: e.data.gold })
+        //  console.log(e.data)
       }
     })
   },
@@ -45,7 +41,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
@@ -74,34 +70,34 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })
