@@ -17,4 +17,7 @@
       </view>
     </view>
   </view>
+  <view class='tishi' hidden='{{ts}}'>
+  <text class='ts'>暂时还没有人回复哦~</text>
+  </view>
 </view>

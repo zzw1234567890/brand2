@@ -486,7 +486,7 @@ Page({
               "content-type": "application/x-www-form-urlencoded"
             },
             success: function (e) {
-              // console.log(e.data)
+              console.log(e.data)
               if (e.data > 0) {
                 // console.log(that.data.vote[index].vote)
                 that.data.vote[index].vote = parseInt(that.data.vote[index].vote) + 1;

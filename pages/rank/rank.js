@@ -6,10 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    common: [
-      { "pic": "../../img/header.jpg", "from": "小扣啊.", "create_time": "2018-5-7 6:23:44", "money": "3", "content": "双方的互动上发挥第三方绝对是福建省即使双方技术技术积分is附件四" },
-      { "pic": "../../img/header.jpg", "from": "小扣啊.", "create_time": "2018-5-7 6:23:44", "money": "3", "content": "双方的互动上发挥第三方绝对是福建省即使双方技术技术积分is附件四" },
-    ]
+    ts:true,
+    // common: [
+    //   { "pic": "../../img/header.jpg", "from": "小扣啊.", "create_time": "2018-5-7 6:23:44", "money": "3", "content": "双方的互动上发挥第三方绝对是福建省即使双方技术技术积分is附件四" },
+    //   { "pic": "../../img/header.jpg", "from": "小扣啊.", "create_time": "2018-5-7 6:23:44", "money": "3", "content": "双方的互动上发挥第三方绝对是福建省即使双方技术技术积分is附件四" },
+    // ]
   },
 
   /**
@@ -30,10 +31,16 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success: function (e) {
-        // console.log(e.data)
-        that.setData({
-          common: e.data
-        })
+        if (e.data==''){
+          that.setData({
+            ts:false
+          })
+        }else{
+          that.setData({
+            common: e.data
+          })
+        } 
+        // console.log(e)   
       }
     })
   },
