@@ -488,7 +488,8 @@ Page({
             success: function (e) {
               // console.log(e.data)
               if (e.data > 0) {
-                that.setData({ is_vote: e.data })
+                that.data.vote[e.data].vote += 1;
+                that.setData({ is_vote: e.data,vote:that.data.vote })
               }
             }
           })

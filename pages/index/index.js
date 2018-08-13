@@ -502,7 +502,7 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success: function (e) {
-        console.log(e);
+        console.log(e.data);
         wx.showLoading({
           title: '支付中...',
         })
