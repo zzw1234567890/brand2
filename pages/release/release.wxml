@@ -26,7 +26,7 @@
             {{item.topic}}
           </view>
           <view class='underway'>
-             {{item.underway?'进行中':'已结束'}}
+            {{item.underway?'已结束':'进行中'}}
           </view>
           <view class='keyword'>
             关键词:
