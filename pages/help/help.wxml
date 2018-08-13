@@ -5,7 +5,7 @@
       1、我们是什么？
     </view>
     <view class='answer1 common_answer'>
-    我们主要是针对用户在购买物品时的纠结情绪，想要询问朋友快速解决问题的平台。每当需要购买物品时，我们平台会给用户推荐排名前十的品牌，发布问题，供分享解决。
+      我们主要是针对用户在购买物品时的纠结情绪，想要询问朋友快速解决问题的平台。每当需要购买物品时，我们平台会给用户推荐排名前十的品牌，发布问题，供分享解决。
     </view>
   </view>
 
@@ -14,16 +14,16 @@
       2、如何创建问题？
     </view>
     <view class='answer2 common_answer'>
-     输入想买的物品以及具体要求-输入悬赏金币-设置问题有效期-选择是否公开-支付发布。
+      输入想买的物品以及具体要求-输入悬赏金币-设置问题有效期-选择是否公开-支付发布。
     </view>
   </view>
 
-   <view class='container1 common_container' style='height:{{height3}}rpx;' bindtap='unfold3'>
+  <view class='container1 common_container' style='height:{{height3}}rpx;' bindtap='unfold3'>
     <view class='question1 common_question'>
       3、如何邀请好友帮忙解决问题？
     </view>
     <view class='answer1 common_answer'>
-     发起人可以将问题在首页展示，并且转发给好友，则有自身好友以及平台其他用户帮忙解决。
+      发起人可以将问题在首页展示，并且转发给好友，则有自身好友以及平台其他用户帮忙解决。
     </view>
   </view>
 
@@ -32,16 +32,16 @@
       4、悬赏金币怎么发放？
     </view>
     <view class='answer2 common_answer'>
-       问题发布后，待问题有效期结束，发起人即可采纳解决方案，平台将会分发此问题的赏金。
+      问题发布后，待问题有效期结束，发起人即可采纳解决方案，平台将会分发此问题的赏金。
     </view>
   </view>
 
-   <view class='container1 common_container' style='height:{{height5}}rpx;' bindtap='unfold5'>
+  <view class='container1 common_container' style='height:{{height5}}rpx;' bindtap='unfold5'>
     <view class='question1 common_question'>
       5、怎样查看自己是否获奖？
     </view>
     <view class='answer1 common_answer'>
-       问题采纳后，平台会推送通知。
+      问题采纳后，平台会推送通知。
     </view>
   </view>
 
@@ -50,25 +50,7 @@
       6、如果问题没有解决，悬赏的金币会退回吗？
     </view>
     <view class='answer2 common_answer'>
-    如果问题无人回答或无可采纳的解决方案，在问题过期后，金币将会自动退款。
-    </view>
-  </view>
-
-    <view class='container2 common_container' style='height:{{height7}}rpx;' bindtap='unfold7'>
-    <view class='question2 common_question'>
-      1、怎样赚钱？
-    </view>
-    <view class='answer2 common_answer'>
-       动漫排行动漫排行动漫排行动漫排行动漫排行动漫排行动漫排行动漫排行动漫排行
-    </view>
-  </view>
-
-    <view class='container2 common_container' style='height:{{height8}}rpx;' bindtap='unfold8'>
-    <view class='question2 common_question'>
-      1、怎样赚钱？
-    </view>
-    <view class='answer2 common_answer'>
-       动漫排行动漫排行动漫排行动漫排行动漫排行动漫排行动漫排行动漫排行动漫排行
+      如果问题无人回答或无可采纳的解决方案，在问题过期后，金币将会自动退款。
     </view>
   </view>
 

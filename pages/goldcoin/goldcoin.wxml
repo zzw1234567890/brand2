@@ -1,13 +1,11 @@
 <view class='bg'>
 
   <view class='header'>
-
     金币余额：{{balance}}
-
   </view>
 
   <view class='body_1'>
-      <view class='topup'>金币充值</view>
+    <view class='topup'>金币充值</view>
     <view class='withdraw'>金币提现</view>
   </view>
 

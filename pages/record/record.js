@@ -10,7 +10,6 @@ Page({
         types : '签到奖励',
         date : '2018-02-31 23:23:21',
         count : '+21',
-        color:''
       }
     ],
     statue:true,
@@ -51,7 +50,7 @@ Page({
         for(var i = 0;i<res.data.length;i++){
           data3.push({
             "types": res.data[i].des,
-            "date": res.data[i].create_time,
+            "date": res.data[i].time,
             "count": res.data[i].gold
           });
         }
