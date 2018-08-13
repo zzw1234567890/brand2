@@ -67,7 +67,7 @@ bindTouchEnd: function (e) {
         for (var i = 0; i < res.data.length; i++) {
           data1.push({
             "topic": res.data[i].questions,
-            "underway": res.data[i].end,
+            "underway": parseInt(res.data[i].end),
             "keyword1": res.data[i].types,
             "releaseDate": res.data[i].time,
             'browse': res.data[i].view,
