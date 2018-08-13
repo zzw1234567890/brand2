@@ -6,16 +6,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-<<<<<<< HEAD
     balance:'0'
   },
   record:function(){
     wx.navigateTo({
       url: '../record/record',
     })
-=======
-    gold:0,
->>>>>>> 6e703b8fcd0858b7a1b5e999102579a160026d25
   },
 
   /**
@@ -35,7 +31,7 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success: function (e) {
-        that.setData({ gold: e.data.gold})
+        that.setData({ balance: e.data.balance})
       //  console.log(e.data)
       }
     })

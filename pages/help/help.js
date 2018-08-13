@@ -19,7 +19,7 @@ Page({
     var that = this;
     if(that.data.height1==100){
       this.setData({
-        height1: 250,
+        height1: 370,
         height2: 100,
         height3: 100,
         height4: 100,
@@ -136,7 +136,7 @@ Page({
         height2: 100,
         height3: 100,
         height4: 100,
-        height5: 250,
+        height5: 200,
         height6: 100,
         height7: 100,
         height8: 100,
@@ -167,62 +167,6 @@ Page({
         height6: 250,
         height7: 100,
         height8: 100,
-      });
-    } else {
-      this.setData({
-        height1: 100,
-        height2: 100,
-        height3: 100,
-        height4: 100,
-        height5: 100,
-        height6: 100,
-        height7: 100,
-        height8: 100,
-      })
-    }
-
-  },
-
-  unfold7: function (e) {
-    var that = this;
-    if (that.data.height7 == 100) {
-      this.setData({
-        height1: 100,
-        height2: 100,
-        height3: 100,
-        height4: 100,
-        height5: 100,
-        height6: 100,
-        height7: 250,
-        height8: 100,
-      });
-    } else {
-      this.setData({
-        height1: 100,
-        height2: 100,
-        height3: 100,
-        height4: 100,
-        height5: 100,
-        height6: 100,
-        height7: 100,
-        height8: 100,
-      })
-    }
-
-  },
-
-  unfold8: function (e) {
-    var that = this;
-    if (that.data.height8 == 100) {
-      this.setData({
-        height1: 100,
-        height2: 100,
-        height3: 100,
-        height4: 100,
-        height5: 100,
-        height6: 100,
-        height7: 100,
-        height8: 250,
       });
     } else {
       this.setData({

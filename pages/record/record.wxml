@@ -4,7 +4,7 @@
       <view class='types'>{{item.types}}</view>
       <view class='date'>{{item.date}}</view>
     </view>
-    <view class='right {{item.color}}'>
+    <view class='right'>
       {{item.count}}
     </view>
   </view>
